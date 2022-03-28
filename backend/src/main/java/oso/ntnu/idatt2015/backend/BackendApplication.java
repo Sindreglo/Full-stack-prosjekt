@@ -1,4 +1,4 @@
-package oso.ntnu.idatt2105.backend;
+package oso.ntnu.idatt2015.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
