@@ -11,6 +11,7 @@ public class QRole {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     Long id;
+    @Column(unique = true)
     String role;
 
     /*
@@ -27,5 +28,13 @@ public class QRole {
 
     public String getRole() {
         return role;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

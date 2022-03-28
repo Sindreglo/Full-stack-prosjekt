@@ -1,5 +1,7 @@
 package oso.ntnu.idatt2015.backend.model.User;
 
+import oso.ntnu.idatt2015.backend.model.QCourse;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
@@ -20,6 +22,12 @@ public class UserRoleCourseKey implements Serializable {
         this.userId = userId;
         this.roleId = roleId;
         this.courseId = courseId;
+    }
+
+    public UserRoleCourseKey(QUser user, QRole role, QCourse course) {
+        this.userId = user.getId();
+        this.roleId = role.getId();
+        this.courseId = course.getId();
     }
 
     public UserRoleCourseKey() {
@@ -47,6 +55,10 @@ public class UserRoleCourseKey implements Serializable {
 
     public void setCourseId(Long courseId) {
         this.courseId = courseId;
+    }
+
+    public String getFullId(){
+        return ""+this.userId+this.courseId+this.roleId;
     }
 
     @Override

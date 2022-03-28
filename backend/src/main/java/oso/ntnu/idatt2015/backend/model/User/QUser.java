@@ -15,6 +15,7 @@ public class QUser {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(unique = true)
     private String username;
     private String password;
     //Add more later

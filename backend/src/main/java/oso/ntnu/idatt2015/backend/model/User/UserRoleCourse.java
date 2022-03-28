@@ -29,6 +29,7 @@ public class UserRoleCourse {
     }
 
     public UserRoleCourse(QUser user, QRole role, QCourse course) {
+        this.id = new UserRoleCourseKey(user, role, course);
         this.user = user;
         this.role = role;
         this.course = course;
