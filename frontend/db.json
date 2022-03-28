@@ -1,0 +1,19 @@
+{
+  "subjects": [
+    {
+      "id": 123,
+      "title": "Full-stack",
+      "description": "IDATT2105"
+    },
+    {
+      "id": 234,
+      "title": "Programmering 2",
+      "description": "IDATT2001"
+    },
+    {
+      "id": 345,
+      "title": "Databaser",
+      "description": "IDATT2103"
+    }
+  ]
+}
