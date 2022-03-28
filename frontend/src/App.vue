@@ -1,13 +1,25 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
+    <h1>Qs3</h1>
+    <router-link to="/">Home</router-link>
+    <br />
     <router-link to="/about">About</router-link>
+    <br />
+    <a>Logg ut</a>
   </nav>
-  <router-view />
+  <div id="view">
+    <router-view />
+  </div>
 </template>
 
 <style>
 #app {
+  display: grid;
+  width: 100%;
+  height: 98vh;
+  grid-template-areas: "nav view";
+  grid-template-rows: 100%;
+  grid-template-columns: 25% 75%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,16 +27,23 @@
   color: #2c3e50;
 }
 
+h1 {
+  font-size: 50px;
+}
+
 nav {
-  padding: 30px;
+  grid-area: nav;
+  color: white;
+  font-size: 20px;
+  background: darkcyan;
 }
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: white;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+#view {
+  grid-area: view;
 }
 </style>
