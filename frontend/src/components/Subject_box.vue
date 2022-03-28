@@ -24,7 +24,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .subject-card {
-  padding: 20px;
+  padding: 10px;
   width: 250px;
   cursor: pointer;
   border: 1px solid #39495c;

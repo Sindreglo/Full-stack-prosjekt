@@ -2,12 +2,39 @@
   <div v-if="subject">
     <h1>{{ subject.title }}</h1>
     <p>{{ subject.description }}</p>
+    <table id="example-1">
+      <tbody v-for="task in subject.task" :key="task.task">
+        <div id="tasks">
+          <td v-if="task.status === 1">
+            <img class="check_img" src="@/assets/approved.png" alt="Godkjent" />
+          </td>
+          <td v-if="task.status === 2">
+            <img class="check_img" src="@/assets/failed.png" alt="Underkjent" />
+          </td>
+          <td v-if="task.status === 0">
+            <img
+              class="check_img"
+              src="@/assets/waiting.png"
+              alt="Ikkevurdert"
+            />
+          </td>
+          <td>
+            <label>{{ task.name }}</label>
+          </td>
+        </div>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
 export default {
   props: ["id"],
+  data() {
+    return {
+      true: "Godkjent",
+    };
+  },
   created() {
     this.$store.dispatch("fetchSubject", this.id).catch((error) => {
       this.$router.push({
@@ -23,3 +50,29 @@ export default {
   },
 };
 </script>
+
+<style>
+#example-1 {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#tasks {
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 10px;
+  width: 250px;
+  cursor: pointer;
+  border: 1px solid #39495c;
+}
+
+td {
+  width: 100px;
+}
+
+.check_img {
+  height: 20px;
+}
+</style>

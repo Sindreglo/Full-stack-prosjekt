@@ -3,17 +3,73 @@
     {
       "id": 123,
       "title": "Full-stack",
-      "description": "IDATT2105"
+      "description": "IDATT2105",
+      "task": [
+        {
+          "name": "Øving1",
+          "status": 1
+        },
+        {
+          "name": "Øving2",
+          "status": 2
+        },
+        {
+          "name": "Øving3",
+          "status": 1
+        },
+        {
+          "name": "Øving4",
+          "status": 1
+        },
+        {
+          "name": "Øving5",
+          "status": 0
+        },
+        {
+          "name": "Øving6",
+          "status": 0
+        }
+      ]
     },
     {
       "id": 234,
       "title": "Programmering 2",
-      "description": "IDATT2001"
+      "description": "IDATT2001",
+      "task": [
+        {
+          "name": "Øving1",
+          "id": 111
+        },
+        {
+          "name": "Øving2"
+        },
+        {
+          "name": "Øving3"
+        },
+        {
+          "name": "Øving4"
+        },
+        {
+          "name": "Øving5"
+        }
+      ]
     },
     {
       "id": 345,
       "title": "Databaser",
-      "description": "IDATT2103"
+      "description": "IDATT2103",
+      "task": [
+        {
+          "name": "Øving1",
+          "id": 111
+        },
+        {
+          "name": "Øving2"
+        },
+        {
+          "name": "Øving3"
+        }
+      ]
     }
   ]
 }
