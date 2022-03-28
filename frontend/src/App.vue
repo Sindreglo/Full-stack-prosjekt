@@ -5,6 +5,10 @@
     <br />
     <router-link to="/about">About</router-link>
     <br />
+    <router-link to="/user_Setting">Settings</router-link>
+    <br />
+    <router-link to="/login">Login</router-link>
+    <br />
     <a>Logg ut</a>
   </nav>
   <div id="view">
