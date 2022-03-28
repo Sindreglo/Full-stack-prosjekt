@@ -1,7 +1,7 @@
 <template>
   <nav>
     <h1>Qs3</h1>
-    <router-link to="/">Home</router-link>
+    <router-link to="/subjects_page">Fag</router-link>
     <br />
     <router-link to="/about">About</router-link>
     <br />
@@ -35,7 +35,7 @@ nav {
   grid-area: nav;
   color: white;
   font-size: 20px;
-  background: darkcyan;
+  background-image: linear-gradient(to right, #008b8b, #006565);
 }
 
 nav a {
