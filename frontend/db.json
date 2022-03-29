@@ -1,4 +1,29 @@
 {
+  "users": [
+    {
+      "name": "Sindre",
+      "exercise": "Øving 1",
+      "place": "Bord 2",
+      "type": "Godkjenning",
+      "Time": "20sek"
+    },
+    {
+      "name": "Øyvind",
+      "exercise": "Øving 2",
+      "place": "Bord 6",
+      "type": "Godkjenning",
+      "Time": "1min 3sek"
+    },
+    {
+      "name": "Olav",
+      "exercise": "Øving 3",
+      "place": "Digitalt",
+      "type": "Hjelp",
+      "Time": "2min 10sek"
+    }
+  ],
+
+
   "subjects": [
     {
       "id": 123,

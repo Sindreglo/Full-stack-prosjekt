@@ -30,6 +30,10 @@
   color: #2c3e50;
 }
 
+a:link {
+  text-decoration: none;
+}
+
 h1 {
   font-size: 50px;
 }

@@ -4,6 +4,7 @@ import Subject_Details from "@/views/subjects/Subject_Details";
 import UserSettings from "@/views/UserSettings";
 import LoginView from "@/views/LoginView";
 import NewApproval from "@/views/Queue/NewApproval";
+import Queue_page from "@/views/Queue/Queue_page";
 
 const routes = [
   {
@@ -32,6 +33,11 @@ const routes = [
     name: "NewApproval",
     props: true,
     component: NewApproval,
+  },
+  {
+    path: "/Queue_page",
+    name: "Queue_page",
+    component: Queue_page,
   },
 ];
 

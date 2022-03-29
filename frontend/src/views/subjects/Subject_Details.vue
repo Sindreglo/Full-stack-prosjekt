@@ -3,7 +3,7 @@
     <h1>{{ subject.title }}</h1>
     <p>{{ subject.description }}</p>
     <router-link
-      class="subject-link"
+      id="GoToQueue"
       :to="{ name: 'NewApproval', params: { id: subject.id } }"
       >Gå til kø</router-link
     >
@@ -76,7 +76,16 @@ export default {
   border: 1px solid #39495c;
 }
 
-#queueButton {
+td {
+  width: 100px;
+}
+
+.check_img {
+  height: 20px;
+}
+
+#GoToQueue {
+  color: inherit;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   margin-top: 20px;
   font-size: 20px;
@@ -86,11 +95,8 @@ export default {
   border: 1px solid #39495c;
 }
 
-td {
-  width: 100px;
-}
-
-.check_img {
-  height: 20px;
+#GoToQueue:hover {
+  transform: scale(1.01);
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
 }
 </style>

@@ -5,6 +5,7 @@ export default createStore({
   state: {
     subjects: [],
     subject: {},
+    users: [],
   },
   getters: {},
   mutations: {
@@ -16,6 +17,9 @@ export default createStore({
     },
     SET_SUBJECTS(state, subjects) {
       state.subjects = subjects;
+    },
+    SET_USERS(state, users) {
+      state.users = users;
     },
   },
   actions: {
@@ -39,6 +43,15 @@ export default createStore({
       return SubjectService.getSubjects()
         .then((response) => {
           commit("SET_SUBJECTS", response.data);
+        })
+        .catch((error) => {
+          throw error;
+        });
+    },
+    fetchUsers({ commit }) {
+      return SubjectService.getUsers()
+        .then((response) => {
+          commit("SET_USERS", response.data);
         })
         .catch((error) => {
           throw error;
