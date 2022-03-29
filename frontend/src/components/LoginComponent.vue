@@ -3,8 +3,8 @@
   <div id="loginContainer">
     <form @submit.prevent="handleLogin">
       <div id="username">
-        <label>Username:</label>
-        <input type="text" name="username" v-model="user.username" />
+        <label>Username(email):</label>
+        <input type="email" name="username" v-model="user.username" />
       </div>
       <div id="password">
         <label>Password:</label>

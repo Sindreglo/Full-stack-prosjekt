@@ -10,7 +10,7 @@
         type="text"
         id="firstName"
         name="firstName"
-        value="{{FIRSTNAME}}"
+        v-model="user.firstName"
       />
       <br />
       <label>Last name:</label>
@@ -19,26 +19,66 @@
         type="text"
         id="lastName"
         name="lastName"
-        value="{{LASTNAME}}"
+        v-model="user.lastName"
       />
       <br />
       <label>Email</label>
-      <input disabled type="text" id="email" name="email" value="{{EMAIL}}" />
+      <input
+        disabled
+        type="email"
+        id="email"
+        name="email"
+        v-model="user.email"
+      />
     </form>
-    <form id="passwordSettings">
-      <label>Current password</label>
-      <input type="password" id="userCurrentPassword" />
-      <input type="password" id="userNewPassword1" placeholder="new password" />
+    <form @submit.prevent="checkAndChangePassword" id="passwordSettings">
+      <label>Change password</label>
+      <input type="password" id="userCurrentPassword" v-model="user.password" />
       <input
         type="password"
-        id="userNewPassword2"
-        placeholder="type new password again"
+        id="newPassword"
+        placeholder="new password"
+        v-model="user.newPassword"
+      />
+      <input
+        type="password"
+        id="verifyNewPassword"
+        placeholder="verify new password"
+        v-model="user.verifyNewPassword"
       />
       <br />
-      <input type="submit" value="Submit" />
+      <button type="submit">Change password</button>
     </form>
   </section>
+  <div id="alert" v-if="alert">{{ alert }}</div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      user: {
+        firstName: "Test",
+        lastName: "Testesen",
+        email: "test@test.com",
+        password: "Test123",
+        newPassword: "",
+        verifyNewPassword: "",
+        alert: "",
+      },
+    };
+  },
+  methods: {
+    checkAndChangePassword() {
+      this.alert = "";
+      if (this.newPassword !== this.verifyNewPassword) {
+        this.alert = "Passwords must match";
+        return;
+      }
+    },
+  },
+};
+</script>
 
 <style>
 .inputSetting {
@@ -49,20 +89,6 @@
   gap: 16px;
 }
 
-#userSettings {
-  background-color: lightgrey;
-}
-
-#passwordSettings {
-  background-color: lightgray;
-}
-
-form .form-control,
-form .form-control:focus {
-  border-color: transparent;
-  border-bottom-color: #bebcc1;
-  box-shadow: none;
-}
 input {
   -ms-flex-order: 2;
   order: 2;
@@ -78,5 +104,10 @@ input {
   width: 100%;
   box-sizing: border-box;
   float: left;
+}
+
+#alert {
+  color: red;
+  margin-bottom: 10px;
 }
 </style>
