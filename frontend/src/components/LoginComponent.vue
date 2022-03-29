@@ -4,7 +4,7 @@
     <form @submit.prevent="handleLogin">
       <div id="username">
         <label>Username:</label>
-        <input type="text" name="username" v-model="user.username" />
+        <input type="email" name="username" v-model="user.username" />
       </div>
       <div id="password">
         <label>Password:</label>
