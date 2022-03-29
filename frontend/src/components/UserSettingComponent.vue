@@ -1,6 +1,6 @@
 <template>
   <div class="settings">
-    <h2>User Settings</h2>
+    <h1>User Settings</h1>
   </div>
   <section class="inputSetting">
     <form id="userSettings">
@@ -10,7 +10,7 @@
         type="text"
         id="firstName"
         name="firstName"
-        value="FIRSTNAME"
+        value="{{FIRSTNAME}}"
       />
       <br />
       <label>Last name:</label>
@@ -19,11 +19,11 @@
         type="text"
         id="lastName"
         name="lastName"
-        value="LASTNAME"
+        value="{{LASTNAME}}"
       />
       <br />
       <label>Email</label>
-      <input disabled type="text" id="email" name="email" value="EMAIL" />
+      <input disabled type="text" id="email" name="email" value="{{EMAIL}}" />
     </form>
     <form id="passwordSettings">
       <label>Current password</label>
@@ -50,11 +50,11 @@
 }
 
 #userSettings {
-  background-color: #42b983;
+  background-color: lightgrey;
 }
 
 #passwordSettings {
-  background-color: #42b983;
+  background-color: lightgray;
 }
 
 form .form-control,
@@ -64,7 +64,6 @@ form .form-control:focus {
   box-shadow: none;
 }
 input {
-  -webkit-order: 2;
   -ms-flex-order: 2;
   order: 2;
   display: block;
@@ -74,7 +73,6 @@ input {
   border-width: 0 0 1px;
   line-height: 26px;
   height: 30px;
-  -ms-flex-preferred-size: 26px;
   border-radius: 0;
   border-style: solid;
   width: 100%;

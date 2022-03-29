@@ -3,7 +3,9 @@
     <h1>Qs3</h1>
     <router-link to="/subjects_page">Fag</router-link>
     <br />
-    <router-link to="/about">About</router-link>
+    <router-link to="/user_Setting">Settings</router-link>
+    <br />
+    <router-link to="/login">Login</router-link>
     <br />
     <a>Logg ut</a>
   </nav>
