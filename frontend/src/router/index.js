@@ -13,6 +13,7 @@ const routes = [
   {
     path: "/subject_details",
     name: "Subject_Details",
+    props: true,
     component: Subject_Details,
   },
   {
