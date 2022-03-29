@@ -18,7 +18,8 @@
 #app {
   display: grid;
   width: 100%;
-  height: 98vh;
+  min-height: 100vh;
+  max-height: 100%;
   grid-template-areas: "nav view";
   grid-template-rows: 100%;
   grid-template-columns: 25% 75%;

@@ -3,6 +3,7 @@ import Subjects_page from "@/views/subjects/Subjects_page";
 import Subject_Details from "@/views/subjects/Subject_Details";
 import UserSettings from "@/views/UserSettings";
 import LoginView from "@/views/LoginView";
+import NewApproval from "@/views/Queue/NewApproval";
 
 const routes = [
   {
@@ -25,6 +26,12 @@ const routes = [
     path: "/login",
     name: "Login_view",
     component: LoginView,
+  },
+  {
+    path: "/newApproval",
+    name: "NewApproval",
+    props: true,
+    component: NewApproval,
   },
 ];
 
