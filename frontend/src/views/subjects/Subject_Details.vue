@@ -2,19 +2,32 @@
   <div v-if="subject">
     <h1>{{ subject.title }}</h1>
     <p>{{ subject.description }}</p>
+    <router-link
+      id="GoToQueue"
+      :to="{ name: 'NewApproval', params: { id: subject.id } }"
+      >Gå til kø</router-link
+    >
     <table id="example-1">
       <tbody v-for="task in subject.task" :key="task.task">
         <div id="tasks">
           <td v-if="task.status === 1">
-            <img class="check_img" src="@/assets/approved.png" alt="Godkjent" />
+            <img
+              class="check_img"
+              src="@/assets/Approval/approved.png"
+              alt="Godkjent"
+            />
           </td>
           <td v-if="task.status === 2">
-            <img class="check_img" src="@/assets/failed.png" alt="Underkjent" />
+            <img
+              class="check_img"
+              src="@/assets/Approval/failed.png"
+              alt="Underkjent"
+            />
           </td>
           <td v-if="task.status === 0">
             <img
               class="check_img"
-              src="@/assets/waiting.png"
+              src="@/assets/Approval/waiting.png"
               alt="Ikkevurdert"
             />
           </td>
@@ -30,11 +43,6 @@
 <script>
 export default {
   props: ["id"],
-  data() {
-    return {
-      true: "Godkjent",
-    };
-  },
   created() {
     this.$store.dispatch("fetchSubject", this.id).catch((error) => {
       this.$router.push({
@@ -74,5 +82,21 @@ td {
 
 .check_img {
   height: 20px;
+}
+
+#GoToQueue {
+  color: inherit;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 7px;
+  width: 200px;
+  cursor: pointer;
+  border: 1px solid #39495c;
+}
+
+#GoToQueue:hover {
+  transform: scale(1.01);
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
 }
 </style>

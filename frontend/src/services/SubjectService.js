@@ -19,4 +19,7 @@ export default {
   postSubject(event) {
     return apiClient.post("/subjects", event);
   },
+  getUsers() {
+    return apiClient.get("/users");
+  },
 };
