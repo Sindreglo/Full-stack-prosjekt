@@ -7,7 +7,7 @@
 
 <script>
 // @ is an alias to /src
-import Subject from "@/components/Subject_box";
+import Subject from "@/components/boxes/Subject_box";
 
 export default {
   components: {

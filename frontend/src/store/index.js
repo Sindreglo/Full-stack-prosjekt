@@ -6,6 +6,7 @@ export default createStore({
     subjects: [],
     subject: {},
     users: [],
+    user: {},
   },
   getters: {},
   mutations: {
@@ -17,6 +18,9 @@ export default createStore({
     },
     SET_SUBJECTS(state, subjects) {
       state.subjects = subjects;
+    },
+    SET_USER(state, user) {
+      state.user = user;
     },
     SET_USERS(state, users) {
       state.users = users;

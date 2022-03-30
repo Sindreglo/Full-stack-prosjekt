@@ -1,29 +1,19 @@
 <template>
-  <h1>Kø</h1>
-  <div class="container">
-    <table class="table">
-      <thead>
-        <th>Student</th>
-        <th>Øving</th>
-        <th>Type</th>
-        <th>Sted</th>
-        <th>Tid</th>
-      </thead>
-      <tbody>
-        <tr v-for="(student, index) in users" v-bind:key="index">
-          <td>{{ student.name }}</td>
-          <td>{{ student.exercise }}</td>
-          <td>{{ student.type }}</td>
-          <td>{{ student.place }}</td>
-          <td>{{ student.Time }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="queue">
+    <h1>Kø</h1>
+    <div id="userTable">
+      <Users v-for="(user, i) in users" :key="i" :user="user" />
+    </div>
   </div>
 </template>
 
 <script>
+import Users from "@/components/boxes/Queue_box";
+
 export default {
+  components: {
+    Users,
+  },
   created() {
     this.$store.dispatch("fetchUsers").catch((error) => {
       this.$router.push({
@@ -41,7 +31,9 @@ export default {
 </script>
 
 <style>
-.table {
-  width: 100%;
+.queue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

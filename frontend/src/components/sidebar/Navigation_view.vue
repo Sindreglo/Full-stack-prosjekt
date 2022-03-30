@@ -7,6 +7,10 @@
       </span>
       <span v-else>Qs 3</span>
     </h1>
+    <sidebarLink to="/AdminView" icon="fa-solid fa-lock">Admin</sidebarLink>
+    <sidebarLink to="/AddUser" icon="fa-solid fa-circle-plus"
+      >Legg til bruker</sidebarLink
+    >
     <sidebarLink to="/CreateSubject" icon="fa-solid fa-circle-plus"
       >Opprett fag</sidebarLink
     >

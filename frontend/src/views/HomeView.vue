@@ -6,7 +6,7 @@
 
 <script>
 // @ is an alias to /src
-import Subject_box from "@/components/Subject_box.vue";
+import Subject_box from "@/components/boxes/Subject_box.vue";
 
 export default {
   name: "HomeView",
