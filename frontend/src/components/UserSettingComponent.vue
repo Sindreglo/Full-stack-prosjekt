@@ -1,56 +1,57 @@
 <template>
   <div class="settings">
-    <h1>User Settings</h1>
+    <h1>USER SETTING</h1>
+
+    <section class="inputSetting">
+      <form id="userSettings">
+        <label>First name:</label>
+        <input
+          disabled
+          type="text"
+          id="firstName"
+          name="firstName"
+          v-model="user.firstName"
+        />
+        <br />
+        <label>Last name:</label>
+        <input
+          disabled
+          type="text"
+          id="lastName"
+          name="lastName"
+          v-model="user.lastName"
+        />
+        <br />
+        <label>Email</label>
+        <input
+          disabled
+          type="email"
+          id="email"
+          name="email"
+          v-model="user.email"
+        />
+      </form>
+      <form @submit.prevent="checkAndChangePassword" id="passwordSettings">
+        <label>Change password</label>
+        <input type="password" id="CurrentPassword" v-model="user.password" />
+        <input
+          type="password"
+          id="newPassword"
+          placeholder="new password"
+          v-model="user.newPassword"
+        />
+        <input
+          type="password"
+          id="verifyNewPassword"
+          placeholder="verify new password"
+          v-model="user.verifyNewPassword"
+        />
+        <br />
+        <button type="submit">Change password</button>
+      </form>
+    </section>
+    <div id="alert" v-if="alert">{{ alert }}</div>
   </div>
-  <section class="inputSetting">
-    <form id="userSettings">
-      <label>First name:</label>
-      <input
-        disabled
-        type="text"
-        id="firstName"
-        name="firstName"
-        v-model="user.firstName"
-      />
-      <br />
-      <label>Last name:</label>
-      <input
-        disabled
-        type="text"
-        id="lastName"
-        name="lastName"
-        v-model="user.lastName"
-      />
-      <br />
-      <label>Email</label>
-      <input
-        disabled
-        type="email"
-        id="email"
-        name="email"
-        v-model="user.email"
-      />
-    </form>
-    <form @submit.prevent="checkAndChangePassword" id="passwordSettings">
-      <label>Change password</label>
-      <input type="password" id="userCurrentPassword" v-model="user.password" />
-      <input
-        type="password"
-        id="newPassword"
-        placeholder="new password"
-        v-model="user.newPassword"
-      />
-      <input
-        type="password"
-        id="verifyNewPassword"
-        placeholder="verify new password"
-        v-model="user.verifyNewPassword"
-      />
-      <br />
-      <button type="submit">Change password</button>
-    </form>
-  </section>
-  <div id="alert" v-if="alert">{{ alert }}</div>
 </template>
 
 <script>
@@ -106,8 +107,9 @@ input {
   float: left;
 }
 
-#alert {
-  color: red;
-  margin-bottom: 10px;
+.settings {
+  width: fit-content;
+  block-size: fit-content;
+  margin: auto;
 }
 </style>

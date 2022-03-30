@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login">
     <h1>LOGIN</h1>
     <form @submit.prevent="login">
       <div>
@@ -35,13 +35,14 @@ export default {
     };
   },
   computed: {
-    loggingIn() {
-      return this.$store.state.authentication.status.loggingIn;
-    },
+    /**loggedIn() {
+      return this.$store.state.auth.status.loggedIn();
+    },*/
   },
   created() {
-    //reset login status
-    this.$store.dispatch("authentication/logout");
+    if (this.loggedIn) {
+      this.$router.push("/subject_page");
+    }
   },
   methods: {
     login() {
@@ -49,9 +50,17 @@ export default {
       const { username, password } = this;
       const { dispatch } = this.$store;
       if (username && password) {
-        dispatch("authentication/login", { username, password });
+        dispatch("auth/login", { username, password });
       }
     },
   },
 };
 </script>
+
+<style scoped>
+.login {
+  width: fit-content;
+  block-size: fit-content;
+  margin: auto;
+}
+</style>
