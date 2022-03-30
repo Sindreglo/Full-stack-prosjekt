@@ -24,12 +24,8 @@ public class QUser {
     private String password;
     //Add more later
 
-
-
-    /*
+    @ManyToOne
     private UserLevel userLevel;
-
-     */
 
     /*
     @OneToMany(mappedBy = "user")
@@ -49,8 +45,4 @@ public class QUser {
         this.userLevel = userLevel;
     }
      */
-
-    public UserDetails getUserDetails(){
-        return new User(username, password, new ArrayList<>());
-    }
 }

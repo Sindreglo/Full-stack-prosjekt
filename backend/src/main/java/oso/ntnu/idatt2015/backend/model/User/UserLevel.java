@@ -17,7 +17,6 @@ public class UserLevel {
     @Column(unique = true)
     String UserLevel;
 
-
     public UserLevel(String userLevel){
         this.UserLevel = userLevel;
     }

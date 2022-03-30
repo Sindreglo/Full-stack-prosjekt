@@ -47,16 +47,22 @@ public class TestConfig {
             QUser u1 = new QUser("student", "password");
             QUser u2 = new QUser("admin", "password");
 
+            u1.setUserLevel(ul1);
+            u2.setUserLevel(ul2);
+
             userRepository.save(u1);
             userRepository.save(u2);
 
 
+            /*
             List<UserRoleCourse> urc = new ArrayList<>();
             urc.add(new UserRoleCourse(u1, r1, c1));
             urc.add(new UserRoleCourse(u1, r1, c2));
             urc.add(new UserRoleCourse(u1, r1, c1));
             urc.add(new UserRoleCourse(u1, r1, c2));
             userRoleCourseRepository.saveAll(urc);
+
+             */
         };
     }
 

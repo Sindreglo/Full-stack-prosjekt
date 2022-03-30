@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import oso.ntnu.idatt2015.backend.model.Task.Task;
 import oso.ntnu.idatt2015.backend.model.Task.TaskValidationFilter;
+import oso.ntnu.idatt2015.backend.model.User.QUser;
 
 import javax.persistence.*;
 import java.util.List;
@@ -23,6 +24,12 @@ public class QCourse {
 
     @OneToMany
     private List<Task> Tasks;
+    @OneToMany
+    private List<QUser> students;
+    @OneToMany
+    private List<QUser> assistants;
+    @OneToMany
+    private List<QUser> teachers;
 
     @ManyToOne
     private TaskValidationFilter taskValidationFilter;
