@@ -23,7 +23,7 @@ public class AuthenticationController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private MyUserDetailsService endUserService;
+    private MyUserDetailsService myUserDetailsService;
 
     @Autowired
     private JwtUtil jwtTokenUtil;
@@ -39,7 +39,7 @@ public class AuthenticationController {
             return ResponseEntity.ok("Incorrect username or password line 43");
             //throw new Exception("Incorrect username or password", e);
         }
-        final UserDetails userDetails = endUserService.loadUserByUsername(authenticationRequest.getUsername());
+        final UserDetails userDetails = myUserDetailsService.loadUserByUsername(authenticationRequest.getUsername());
         final String jwt = jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }

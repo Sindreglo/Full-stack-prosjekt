@@ -5,9 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import oso.ntnu.idatt2015.backend.model.Course.QCourse;
+import oso.ntnu.idatt2015.backend.model.HTTP.CourseResponse;
 import oso.ntnu.idatt2015.backend.service.Course.CourseService;
+import oso.ntnu.idatt2015.backend.service.Security.JwtUtil;
+import oso.ntnu.idatt2015.backend.service.User.UserRoleCourseService;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/api/course")
@@ -15,12 +18,21 @@ public class CourseController {
     private final CourseService courseService;
 
     @Autowired
-    public CourseController(CourseService courseService){
+    private final JwtUtil jwtUtil;
+
+    @Autowired
+    private final UserRoleCourseService userRoleCourseService;
+
+    @Autowired
+    public CourseController(CourseService courseService, JwtUtil jwtUtil, UserRoleCourseService userRoleCourseService){
         this.courseService = courseService;
+        this.jwtUtil = jwtUtil;
+        this.userRoleCourseService = userRoleCourseService;
     }
 
     @GetMapping
-    public List<QCourse> getCourses(){
-        return courseService.getAllCourses();
+    public CourseResponse getCoursesByUser(HttpServletRequest request){
+        String username = jwtUtil.extractUsername(request.getHeader("Authorization").substring(7));
+        return userRoleCourseService.findByUsername(username);
     }
 }

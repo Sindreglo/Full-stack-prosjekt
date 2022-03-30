@@ -6,8 +6,8 @@ import lombok.Setter;
 
 @Getter @Setter @NoArgsConstructor
 public class AuthenticationRequest {
-    String username;
-    String password;
+    private String username;
+    private String password;
 
     public AuthenticationRequest(String username, String password) {
         this.username = username;
