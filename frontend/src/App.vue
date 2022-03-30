@@ -1,28 +1,23 @@
 <template>
-  <nav>
-    <h1>Qs3</h1>
-    <router-link to="/subjects_page">Fag</router-link>
-    <br />
-    <router-link to="/user_Setting">Settings</router-link>
-    <br />
-    <router-link to="/login">Login</router-link>
-    <br />
-    <a>Logg ut</a>
-  </nav>
-  <div id="view">
+  <Sidebar />
+  <div :style="{ 'margin-left': sidebarWidth }">
     <router-view />
   </div>
 </template>
 
+<script>
+import Sidebar from "@/components/sidebar/Navigation_view";
+import { sidebarWidth } from "@/components/sidebar/state";
+export default {
+  components: { Sidebar },
+  setup() {
+    return { sidebarWidth };
+  },
+};
+</script>
+
 <style>
 #app {
-  display: grid;
-  width: 100%;
-  min-height: 100vh;
-  max-height: 100%;
-  grid-template-areas: "nav view";
-  grid-template-rows: 100%;
-  grid-template-columns: 25% 75%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,27 +25,16 @@
   color: #2c3e50;
 }
 
-a:link {
-  text-decoration: none;
+#nav {
+  padding: 30px;
 }
 
-h1 {
-  font-size: 50px;
-}
-
-nav {
-  grid-area: nav;
-  color: white;
-  font-size: 20px;
-  background-image: linear-gradient(to right, #008b8b, #006565);
-}
-
-nav a {
+#nav a {
   font-weight: bold;
-  color: white;
+  color: #2c3e50;
 }
 
-#view {
-  grid-area: view;
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
