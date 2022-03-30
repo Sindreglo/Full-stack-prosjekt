@@ -1,10 +1,14 @@
 package oso.ntnu.idatt2015.backend.model.User;
 
-import oso.ntnu.idatt2015.backend.model.QCourse;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import oso.ntnu.idatt2015.backend.model.Course.QCourse;
 
 import javax.persistence.*;
 
 @Entity
+@Getter @Setter @NoArgsConstructor
 public class UserRoleCourse {
     @EmbeddedId
     UserRoleCourseKey id;
@@ -25,45 +29,10 @@ public class UserRoleCourse {
     QCourse course;
 
 
-    public UserRoleCourse() {
-    }
-
     public UserRoleCourse(QUser user, QRole role, QCourse course) {
         this.id = new UserRoleCourseKey(user, role, course);
         this.user = user;
         this.role = role;
-        this.course = course;
-    }
-
-    public UserRoleCourseKey getId() {
-        return id;
-    }
-
-    public void setId(UserRoleCourseKey id) {
-        this.id = id;
-    }
-
-    public QUser getUser() {
-        return user;
-    }
-
-    public void setUser(QUser user) {
-        this.user = user;
-    }
-
-    public QRole getRole() {
-        return role;
-    }
-
-    public void setRole(QRole role) {
-        this.role = role;
-    }
-
-    public QCourse getCourse() {
-        return course;
-    }
-
-    public void setCourse(QCourse course) {
         this.course = course;
     }
 }

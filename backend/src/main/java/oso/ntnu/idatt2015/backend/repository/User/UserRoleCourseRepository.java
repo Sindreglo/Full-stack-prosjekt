@@ -1,4 +1,4 @@
-package oso.ntnu.idatt2015.backend.repository;
+package oso.ntnu.idatt2015.backend.repository.User;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

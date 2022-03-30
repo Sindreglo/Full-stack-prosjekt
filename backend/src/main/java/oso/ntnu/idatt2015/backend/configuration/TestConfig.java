@@ -3,39 +3,95 @@ package oso.ntnu.idatt2015.backend.configuration;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import oso.ntnu.idatt2015.backend.model.QCourse;
+import oso.ntnu.idatt2015.backend.model.Course.QCourse;
 import oso.ntnu.idatt2015.backend.model.User.QRole;
 import oso.ntnu.idatt2015.backend.model.User.QUser;
+import oso.ntnu.idatt2015.backend.model.User.UserLevel;
 import oso.ntnu.idatt2015.backend.model.User.UserRoleCourse;
-import oso.ntnu.idatt2015.backend.repository.CourseRepository;
-import oso.ntnu.idatt2015.backend.repository.RoleRepository;
-import oso.ntnu.idatt2015.backend.repository.UserRepository;
-import oso.ntnu.idatt2015.backend.repository.UserRoleCourseRepository;
+import oso.ntnu.idatt2015.backend.repository.Course.CourseRepository;
+import oso.ntnu.idatt2015.backend.repository.Course.QElementRepository;
+import oso.ntnu.idatt2015.backend.repository.Task.TaskRepository;
+import oso.ntnu.idatt2015.backend.repository.Task.TaskValidationFilterRepository;
+import oso.ntnu.idatt2015.backend.repository.User.RoleRepository;
+import oso.ntnu.idatt2015.backend.repository.User.UserLevelRepository;
+import oso.ntnu.idatt2015.backend.repository.User.UserRepository;
+import oso.ntnu.idatt2015.backend.repository.User.UserRoleCourseRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
 public class TestConfig {
+
     @Bean
+    CommandLineRunner simpleRunner(CourseRepository courseRepository, RoleRepository roleRepository,
+                                   UserRepository userRepository, UserRoleCourseRepository userRoleCourseRepository,
+                                   UserLevelRepository userLevelRepository, QElementRepository qElementRepository,
+                                   TaskRepository taskRepository, TaskValidationFilterRepository taskValidationFilterRepository){
+        return args -> {
+            UserLevel ul1 = new UserLevel("admin");
+            UserLevel ul2 = new UserLevel("user");
+            userLevelRepository.save(ul1);
+            userLevelRepository.save(ul2);
+
+            QRole r1 = new QRole("Professor");
+            QRole r2 = new QRole("Student");
+            roleRepository.save(r1);
+            roleRepository.save(r2);
+
+            QCourse c1 = new QCourse("Math");
+            QCourse c2 = new QCourse("Physics");
+            courseRepository.save(c1);
+            courseRepository.save(c2);
+
+            QUser u1 = new QUser("student", "password");
+            QUser u2 = new QUser("admin", "password");
+
+            userRepository.save(u1);
+            userRepository.save(u2);
+
+
+            List<UserRoleCourse> urc = new ArrayList<>();
+            urc.add(new UserRoleCourse(u1, r1, c1));
+            urc.add(new UserRoleCourse(u1, r1, c2));
+            urc.add(new UserRoleCourse(u1, r1, c1));
+            urc.add(new UserRoleCourse(u1, r1, c2));
+            userRoleCourseRepository.saveAll(urc);
+        };
+    }
+
     CommandLineRunner commandLineRunner(CourseRepository courseRepository, RoleRepository roleRepository,
-                                        UserRepository userRepository, UserRoleCourseRepository userRoleCourseRepository){
+                                        UserRepository userRepository, UserRoleCourseRepository userRoleCourseRepository,
+                                        UserLevelRepository userLevelRepository){
         return args -> {
             int testSize = 10;
+
+            userRoleCourseRepository.deleteAll();
+            roleRepository.deleteAll();
+            courseRepository.deleteAll();
+            userLevelRepository.deleteAll();
+            userRepository.deleteAll();
+
 
             List<QUser> ul = new ArrayList<QUser>();
             List<QRole> rl = new ArrayList<QRole>();
             List<QCourse> cl = new ArrayList<QCourse>();
 
+            userLevelRepository.save(new UserLevel("admin"));
+            userLevelRepository.save(new UserLevel("user"));
+
             QRole role1 = new QRole("Student");
             QRole role2 = new QRole("StudAss");
             QRole role3 = new QRole("Professor");
+
+            UserLevel admin = userLevelRepository.getById(1L);
 
             rl.add(role1);
             rl.add(role2);
             rl.add(role3);
 
             QUser prof = new QUser("Professor", "password");
+            //prof.setUserLevel(admin);
 
             ul.add(prof);
 
@@ -59,6 +115,8 @@ public class TestConfig {
             cl = courseRepository.findAll();
             rl = roleRepository.findAll();
 
+
+
             /*
             String roles = "Roles: ";
             String courses = "Courses: ";
@@ -78,6 +136,7 @@ public class TestConfig {
 
             List<UserRoleCourse> saveList = new ArrayList<>();
 
+
             for (int i = 0; i < testSize; i++) {
                 try {
                     UserRoleCourse userRoleCourse1 = new UserRoleCourse(ul.get(i+1), rl.get(0), cl.get(i));
@@ -90,6 +149,7 @@ public class TestConfig {
                 }
             }
             userRoleCourseRepository.saveAll(saveList);
+
         };
     }
 }

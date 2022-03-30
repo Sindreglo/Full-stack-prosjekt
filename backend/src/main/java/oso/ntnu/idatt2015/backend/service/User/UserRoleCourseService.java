@@ -1,12 +1,12 @@
-package oso.ntnu.idatt2015.backend.service;
+package oso.ntnu.idatt2015.backend.service.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import oso.ntnu.idatt2015.backend.model.QCourse;
+import oso.ntnu.idatt2015.backend.model.Course.QCourse;
 import oso.ntnu.idatt2015.backend.model.User.QRole;
 import oso.ntnu.idatt2015.backend.model.User.QUser;
 import oso.ntnu.idatt2015.backend.model.User.UserRoleCourse;
-import oso.ntnu.idatt2015.backend.repository.UserRoleCourseRepository;
+import oso.ntnu.idatt2015.backend.repository.User.UserRoleCourseRepository;
 
 import java.util.List;
 

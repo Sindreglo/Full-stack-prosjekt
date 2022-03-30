@@ -1,9 +1,9 @@
-package oso.ntnu.idatt2015.backend.service;
+package oso.ntnu.idatt2015.backend.service.Course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import oso.ntnu.idatt2015.backend.model.QCourse;
-import oso.ntnu.idatt2015.backend.repository.CourseRepository;
+import oso.ntnu.idatt2015.backend.model.Course.QCourse;
+import oso.ntnu.idatt2015.backend.repository.Course.CourseRepository;
 
 import java.util.List;
 

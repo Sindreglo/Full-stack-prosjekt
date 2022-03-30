@@ -1,6 +1,6 @@
 package oso.ntnu.idatt2015.backend.model.User;
 
-import oso.ntnu.idatt2015.backend.model.QCourse;
+import oso.ntnu.idatt2015.backend.model.Course.QCourse;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

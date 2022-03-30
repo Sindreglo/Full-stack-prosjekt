@@ -1,5 +1,8 @@
 package oso.ntnu.idatt2015.backend.model.User;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,6 +12,7 @@ import java.util.ArrayList;
 
 @Entity
 @Table(name = "users")
+@Getter @Setter @NoArgsConstructor
 public class QUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,43 +24,33 @@ public class QUser {
     private String password;
     //Add more later
 
-    public QUser(){}
+
+
+    /*
+    private UserLevel userLevel;
+
+     */
+
+    /*
+    @OneToMany(mappedBy = "user")
+    Set<UserRoleCourse> userRoleCourses;
+
+     */
+
     public QUser(String username, String password){
         this.username = username;
         this.password = password;
     }
 
     /*
-    @OneToMany(mappedBy = "user")
-    Set<UserRoleCourse> userRoleCourses;
-
-
-     */
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
+    public QUser(String username, String password, UserLevel userLevel){
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
         this.password = password;
+        this.userLevel = userLevel;
     }
+     */
 
     public UserDetails getUserDetails(){
-        return new User(this.username, this.password, new ArrayList<>());
+        return new User(username, password, new ArrayList<>());
     }
 }

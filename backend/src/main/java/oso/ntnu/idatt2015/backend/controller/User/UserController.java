@@ -1,11 +1,11 @@
-package oso.ntnu.idatt2015.backend.controller;
+package oso.ntnu.idatt2015.backend.controller.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import oso.ntnu.idatt2015.backend.model.User.QUser;
-import oso.ntnu.idatt2015.backend.service.UserService;
+import oso.ntnu.idatt2015.backend.service.User.UserService;
 
 import java.util.List;
 
@@ -21,6 +21,8 @@ public class UserController {
 
     @GetMapping
     public List<QUser> getUsers(){
-        return userService.getAllUsers();
+        List<QUser> users = userService.getAllUsers();
+        System.out.println(users.size());
+        return users;
     }
 }

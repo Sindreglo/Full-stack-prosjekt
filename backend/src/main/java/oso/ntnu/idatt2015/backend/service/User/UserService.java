@@ -1,9 +1,9 @@
-package oso.ntnu.idatt2015.backend.service;
+package oso.ntnu.idatt2015.backend.service.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import oso.ntnu.idatt2015.backend.model.User.QUser;
-import oso.ntnu.idatt2015.backend.repository.UserRepository;
+import oso.ntnu.idatt2015.backend.repository.User.UserRepository;
 
 import java.util.List;
 

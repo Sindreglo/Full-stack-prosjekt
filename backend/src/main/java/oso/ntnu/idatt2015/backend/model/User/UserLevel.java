@@ -1,32 +1,24 @@
 package oso.ntnu.idatt2015.backend.model.User;
 
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "level")
 @Getter @Setter @NoArgsConstructor
-public class QRole {
+public class UserLevel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Long id;
+    Long id;
     @Column(unique = true)
-    private String role;
+    String UserLevel;
 
-    /*
-    @OneToMany(mappedBy = "role")
-    Set<UserRoleCourse> userRoleCourses;
-     */
 
-    public QRole(String role) {
-        this.role = role;
+    public UserLevel(String userLevel){
+        this.UserLevel = userLevel;
     }
-
-
 }

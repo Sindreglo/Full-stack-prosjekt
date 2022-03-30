@@ -1,11 +1,11 @@
-package oso.ntnu.idatt2015.backend.controller;
+package oso.ntnu.idatt2015.backend.controller.Course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import oso.ntnu.idatt2015.backend.model.QCourse;
-import oso.ntnu.idatt2015.backend.service.CourseService;
+import oso.ntnu.idatt2015.backend.model.Course.QCourse;
+import oso.ntnu.idatt2015.backend.service.Course.CourseService;
 
 import java.util.List;
 
