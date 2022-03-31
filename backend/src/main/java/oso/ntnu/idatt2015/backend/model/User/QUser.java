@@ -5,9 +5,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import oso.ntnu.idatt2015.backend.model.Task.UseTaskStatus;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -26,6 +28,9 @@ public class QUser {
 
     @ManyToOne
     private UserLevel userLevel;
+
+    @OneToMany
+    private List<UseTaskStatus> taskStatusList;
 
     /*
     @OneToMany(mappedBy = "user")

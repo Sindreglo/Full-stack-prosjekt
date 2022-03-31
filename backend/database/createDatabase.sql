@@ -1,1 +1,0 @@
-Create DATABASE qs3;
