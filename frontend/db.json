@@ -1,0 +1,109 @@
+{
+  "users": [
+    {
+      "username": "Sindre",
+      "epost": "Sindre@gmail.com",
+      "rolle": "Student",
+      "exercise": "Øving 1",
+      "place": "Bord 2",
+      "type": "Godkjenning",
+      "Time": "20sek"
+    },
+    {
+      "username": "Øyvind",
+      "epost": "Øyvind@gmail.com",
+      "rolle": "Lærer",
+      "exercise": "Øving 2",
+      "place": "Bord 6",
+      "type": "Godkjenning",
+      "Time": "1min 3sek"
+    },
+    {
+      "username": "Olav",
+      "epost": "Olav@gmail.com",
+      "rolle": "Student",
+      "exercise": "Øving 3",
+      "place": "Digitalt",
+      "type": "Hjelp",
+      "Time": "2min 10sek"
+    }
+  ],
+
+
+  "subjects": [
+    {
+      "id": 123,
+      "title": "Full-stack",
+      "description": "IDATT2105",
+      "active": "Aktiv",
+      "task": [
+        {
+          "name": "Øving1",
+          "status": 1
+        },
+        {
+          "name": "Øving2",
+          "status": 2
+        },
+        {
+          "name": "Øving3",
+          "status": 1
+        },
+        {
+          "name": "Øving4",
+          "status": 1
+        },
+        {
+          "name": "Øving5",
+          "status": 0
+        },
+        {
+          "name": "Øving6",
+          "status": 0
+        }
+      ]
+    },
+    {
+      "id": 234,
+      "title": "Programmering 2",
+      "description": "IDATT2001",
+      "active": "Aktiv",
+      "task": [
+        {
+          "name": "Øving1",
+          "id": 111
+        },
+        {
+          "name": "Øving2"
+        },
+        {
+          "name": "Øving3"
+        },
+        {
+          "name": "Øving4"
+        },
+        {
+          "name": "Øving5"
+        }
+      ]
+    },
+    {
+      "id": 345,
+      "title": "Databaser",
+      "description": "IDATT2103",
+      "active": "Ikke aktiv",
+      "task": [
+        {
+          "name": "Øving1",
+          "id": 111
+        },
+        {
+          "name": "Øving2"
+        },
+        {
+          "name": "Øving3"
+        }
+      ]
+    }
+  ]
+}
