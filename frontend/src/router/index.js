@@ -8,6 +8,7 @@ import Queue_page from "@/views/Queue/Queue_page";
 import CreateSubject from "@/views/admin/CreateSubject";
 import AddUser from "@/views/admin/AddUser";
 import AdminView from "@/views/admin/AdminView";
+import ApprovalView from "@/views/Queue/StudentAssistent/ApprovalView";
 
 const routes = [
   {
@@ -56,6 +57,12 @@ const routes = [
     path: "/AdminView",
     name: "AdminView",
     component: AdminView,
+  },
+  {
+    path: "/ApprovalView",
+    name: "ApprovalView",
+    props: true,
+    component: ApprovalView,
   },
 ];
 
