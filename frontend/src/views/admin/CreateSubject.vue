@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import papa from "papaparse";
+//import papa from "papaparse";
 export default {
   data() {
     return {
@@ -36,7 +36,7 @@ export default {
     };
   },
   methods: {
-    csvToJson() {
+    /*csvToJson() {
       let csvFile = this.$refs.file.files[0];
 
       if (csvFile === undefined) {
@@ -53,7 +53,7 @@ export default {
           that.csvData = result.data;
         },
       });
-    },
+    },*/
   },
 };
 </script>
