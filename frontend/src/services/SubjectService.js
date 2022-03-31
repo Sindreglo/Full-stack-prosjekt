@@ -10,6 +10,7 @@ const apiClient = axios.create({
 });
 
 export default {
+  login() {},
   getSubjects() {
     return apiClient.get("/subjects");
   },

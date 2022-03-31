@@ -7,11 +7,19 @@
       </span>
       <span v-else>Qs 3</span>
     </h1>
-    <sidebarLink to="/AdminView" icon="fa-solid fa-lock">Admin</sidebarLink>
-    <sidebarLink to="/AddUser" icon="fa-solid fa-circle-plus"
+    <sidebarLink v-show="admin === 1" to="/AdminView" icon="fa-solid fa-lock"
+      >Admin</sidebarLink
+    >
+    <sidebarLink
+      v-show="admin === 1"
+      to="/AddUser"
+      icon="fa-solid fa-circle-plus"
       >Legg til bruker</sidebarLink
     >
-    <sidebarLink to="/CreateSubject" icon="fa-solid fa-circle-plus"
+    <sidebarLink
+      v-show="admin === 1"
+      to="/CreateSubject"
+      icon="fa-solid fa-circle-plus"
       >Opprett fag</sidebarLink
     >
     <SidebarLink to="/subjects_page" icon="fa-solid fa-book">Fag</SidebarLink>
@@ -39,6 +47,11 @@ export default {
   components: { SidebarLink },
   setup() {
     return { collapsed, toggleSidebar, sidebarWidth };
+  },
+  computed: {
+    admin() {
+      return this.$store.state.test;
+    },
   },
 };
 </script>

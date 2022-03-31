@@ -11,16 +11,19 @@
     </div>
     <div>
       <h3>Antall Øvinger:</h3>
-      <div>
-        <input
-          class="inputField"
-          type="number"
-          min="0"
-          step="1"
-          placeholder="0"
-        />
-      </div>
+      <input
+        class="inputField"
+        type="number"
+        min="0"
+        step="1"
+        placeholder="0"
+      />
     </div>
+    <div>
+      <h3>Importer CSV studenter</h3>
+      <textarea></textarea>
+    </div>
+    <button id="addUser" v-on:click="csvToJson">Legg til</button>
   </form>
 </template>
 
@@ -68,5 +71,11 @@ export default {
 .inputField {
   width: 200px;
   border: black 1px solid;
+  margin-bottom: 20px;
+}
+
+textarea {
+  min-width: 300px;
+  min-height: 100px;
 }
 </style>

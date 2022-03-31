@@ -3,10 +3,12 @@ import SubjectService from "@/services/SubjectService";
 
 export default createStore({
   state: {
+    mainUser: {},
     subjects: [],
     subject: {},
     users: [],
     user: {},
+    test: 2,
   },
   getters: {},
   mutations: {
