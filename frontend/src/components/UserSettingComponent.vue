@@ -48,9 +48,9 @@
         />
         <br />
         <button type="submit">Change password</button>
+        <div id="alert" v-if="alert">{{ user.alert }}</div>
       </form>
     </section>
-    <div id="alert" v-if="alert">{{ alert }}</div>
   </div>
 </template>
 
@@ -71,10 +71,10 @@ export default {
   },
   methods: {
     checkAndChangePassword() {
-      this.alert = "";
+      console.log("HEI");
       if (this.newPassword !== this.verifyNewPassword) {
         this.alert = "Passwords must match";
-        return;
+        return this.alert;
       }
     },
   },
