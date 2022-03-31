@@ -23,6 +23,7 @@ import java.util.List;
 @Configuration
 public class TestConfig {
 
+
     @Bean
     CommandLineRunner simpleRunner(CourseRepository courseRepository, RoleRepository roleRepository,
                                    UserRepository userRepository, UserRoleCourseRepository userRoleCourseRepository,
@@ -36,8 +37,10 @@ public class TestConfig {
 
             QRole r1 = new QRole("Professor");
             QRole r2 = new QRole("Student");
+            QRole r3 = new QRole("Assistant");
             roleRepository.save(r1);
             roleRepository.save(r2);
+            roleRepository.save(r3);
 
             QCourse c1 = new QCourse("Math");
             QCourse c2 = new QCourse("Physics");
@@ -47,22 +50,18 @@ public class TestConfig {
             QUser u1 = new QUser("student", "password");
             QUser u2 = new QUser("admin", "password");
 
-            u1.setUserLevel(ul1);
-            u2.setUserLevel(ul2);
-
+            u1.setUserLevel(ul2);
+            u2.setUserLevel(ul1);
             userRepository.save(u1);
             userRepository.save(u2);
 
-
-            /*
             List<UserRoleCourse> urc = new ArrayList<>();
-            urc.add(new UserRoleCourse(u1, r1, c1));
-            urc.add(new UserRoleCourse(u1, r1, c2));
-            urc.add(new UserRoleCourse(u1, r1, c1));
-            urc.add(new UserRoleCourse(u1, r1, c2));
+            urc.add(new UserRoleCourse(u1, r3, c1));
+            urc.add(new UserRoleCourse(u1, r2, c2));
+            urc.add(new UserRoleCourse(u2, r1, c1));
+            urc.add(new UserRoleCourse(u2, r1, c2));
             userRoleCourseRepository.saveAll(urc);
 
-             */
         };
     }
 
