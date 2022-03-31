@@ -5,7 +5,7 @@
   >
     <div class="subject-card">
       <h2>{{ subject.title }}</h2>
-      <p>{{ subject.description }}</p>
+      <p>{{ subject.description }} | {{ subject.active }}</p>
     </div>
   </router-link>
 </template>

@@ -7,9 +7,18 @@
       </span>
       <span v-else>Qs 3</span>
     </h1>
-    <SidebarLink to="/subjects_page" icon="fas fa-home">Fag</SidebarLink>
-    <SidebarLink to="/user_Setting" icon="fas fa-columns">Settings</SidebarLink>
-    <SidebarLink to="/login" icon="fas fa-chart-bar">login</SidebarLink>
+    <sidebarLink to="/AdminView" icon="fa-solid fa-lock">Admin</sidebarLink>
+    <sidebarLink to="/AddUser" icon="fa-solid fa-circle-plus"
+      >Legg til bruker</sidebarLink
+    >
+    <sidebarLink to="/CreateSubject" icon="fa-solid fa-circle-plus"
+      >Opprett fag</sidebarLink
+    >
+    <SidebarLink to="/subjects_page" icon="fa-solid fa-book">Fag</SidebarLink>
+    <SidebarLink to="/user_Setting" icon="fas fa-tools">Settings</SidebarLink>
+    <SidebarLink to="/login" icon="fa-solid fa-right-from-bracket"
+      >logg inn</SidebarLink
+    >
 
     <span
       class="collapse-icon"
@@ -22,7 +31,7 @@
 </template>
 
 <script>
-import SidebarLink from "./SidebarLink";
+import SidebarLink from "./NavigationLink";
 import { collapsed, toggleSidebar, sidebarWidth } from "./state";
 
 export default {
@@ -67,7 +76,7 @@ export default {
 
 .collapse-icon {
   position: absolute;
-  bottom: 0;
+  top: 0;
   padding: 0.75em;
 
   color: rgba(255, 255, 255, 0.7);

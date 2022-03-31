@@ -1,21 +1,27 @@
 {
   "users": [
     {
-      "name": "Sindre",
+      "username": "Sindre",
+      "epost": "Sindre@gmail.com",
+      "rolle": "Student",
       "exercise": "Øving 1",
       "place": "Bord 2",
       "type": "Godkjenning",
       "Time": "20sek"
     },
     {
-      "name": "Øyvind",
+      "username": "Øyvind",
+      "epost": "Øyvind@gmail.com",
+      "rolle": "Lærer",
       "exercise": "Øving 2",
       "place": "Bord 6",
       "type": "Godkjenning",
       "Time": "1min 3sek"
     },
     {
-      "name": "Olav",
+      "username": "Olav",
+      "epost": "Olav@gmail.com",
+      "rolle": "Student",
       "exercise": "Øving 3",
       "place": "Digitalt",
       "type": "Hjelp",
@@ -29,6 +35,7 @@
       "id": 123,
       "title": "Full-stack",
       "description": "IDATT2105",
+      "active": "Aktiv",
       "task": [
         {
           "name": "Øving1",
@@ -60,6 +67,7 @@
       "id": 234,
       "title": "Programmering 2",
       "description": "IDATT2001",
+      "active": "Aktiv",
       "task": [
         {
           "name": "Øving1",
@@ -83,6 +91,7 @@
       "id": 345,
       "title": "Databaser",
       "description": "IDATT2103",
+      "active": "Ikke aktiv",
       "task": [
         {
           "name": "Øving1",

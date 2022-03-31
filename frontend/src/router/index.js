@@ -5,6 +5,9 @@ import UserSettings from "@/views/UserSettings";
 import LoginView from "@/views/LoginView";
 import NewApproval from "@/views/Queue/NewApproval";
 import Queue_page from "@/views/Queue/Queue_page";
+import CreateSubject from "@/views/admin/CreateSubject";
+import AddUser from "@/views/admin/AddUser";
+import AdminView from "@/views/admin/AdminView";
 
 const routes = [
   {
@@ -38,6 +41,21 @@ const routes = [
     path: "/Queue_page",
     name: "Queue_page",
     component: Queue_page,
+  },
+  {
+    path: "/CreateSubject",
+    name: "CreateSubject",
+    component: CreateSubject,
+  },
+  {
+    path: "/AddUser",
+    name: "AddUser",
+    component: AddUser,
+  },
+  {
+    path: "/AdminView",
+    name: "AdminView",
+    component: AdminView,
   },
 ];
 
