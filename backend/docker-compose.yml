@@ -22,3 +22,5 @@ services:
     environment:
       - POSTGRES_USER=compose-postgres
       - POSTGRES_PASSWORD=compose-postgres
+    ports:
+      - "5432:5432"

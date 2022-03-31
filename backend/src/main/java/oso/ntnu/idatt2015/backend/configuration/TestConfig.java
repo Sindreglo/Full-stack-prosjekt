@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import oso.ntnu.idatt2015.backend.model.Course.QCourse;
+import oso.ntnu.idatt2015.backend.model.Task.Task;
 import oso.ntnu.idatt2015.backend.model.User.QRole;
 import oso.ntnu.idatt2015.backend.model.User.QUser;
 import oso.ntnu.idatt2015.backend.model.User.UserLevel;
@@ -62,6 +63,33 @@ public class TestConfig {
             urc.add(new UserRoleCourse(u2, r1, c2));
             userRoleCourseRepository.saveAll(urc);
 
+            Task task1 = new Task("Øving 1");
+            Task task2 = new Task("Øving 2");
+            Task task3 = new Task("Øving 1");
+            Task task4 = new Task("Øving 2");
+
+            taskRepository.save(task1);
+            taskRepository.save(task2);
+            taskRepository.save(task3);
+            taskRepository.save(task4);
+
+            /*
+            c1.addTask(task1);
+            c1.addTask(task2);
+            c2.addTask(task3);
+            c2.addTask(task4);
+
+            courseRepository.save(c1);
+            courseRepository.save(c2);
+
+            for (UserRoleCourse var:userRoleCourseRepository.findByRole(r2)) {
+                var.getUser().approveTask(var.getCourse().getTasks().get(0));
+                var.getUser().failTask(var.getCourse().getTasks().get(0));
+            }
+
+            userRepository.save(u2);
+
+             */
         };
     }
 

@@ -3,12 +3,9 @@ package oso.ntnu.idatt2015.backend.model.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import oso.ntnu.idatt2015.backend.model.Task.UseTaskStatus;
+import oso.ntnu.idatt2015.backend.model.Task.Task;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -30,7 +27,10 @@ public class QUser {
     private UserLevel userLevel;
 
     @OneToMany
-    private List<UseTaskStatus> taskStatusList;
+    private List<Task> approvedTasks;
+
+    @OneToMany
+    private List<Task> failedTasks;
 
     /*
     @OneToMany(mappedBy = "user")
@@ -41,6 +41,17 @@ public class QUser {
     public QUser(String username, String password){
         this.username = username;
         this.password = password;
+    }
+
+
+    public void failTask(Task task){
+        this.failedTasks.add(task);
+        this.approvedTasks.remove(task);
+    }
+
+    public void approveTask(Task task){
+        this.approvedTasks.add(task);
+        this.failedTasks.remove(task);
     }
 
     /*
