@@ -7,10 +7,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import oso.ntnu.idatt2015.backend.model.Security.AuthenticationRequest;
 import oso.ntnu.idatt2015.backend.model.Security.AuthenticationResponse;
 import oso.ntnu.idatt2015.backend.service.Security.JwtUtil;
@@ -28,6 +25,7 @@ public class AuthenticationController {
     @Autowired
     private JwtUtil jwtTokenUtil;
 
+    @CrossOrigin
     @RequestMapping(value = "/auth", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)throws Exception{
         System.out.println("mottatt: " + authenticationRequest.getUsername() + ";" + authenticationRequest.getPassword());

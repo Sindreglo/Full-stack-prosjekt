@@ -1,5 +1,5 @@
 <template>
-  <form id="createSubject">
+  <form id="createSubject" @submit.prevent="handleLogin">
     <h1>Logg inn</h1>
     <div>
       <h3>brukernavn:</h3>
@@ -9,11 +9,15 @@
       <h3>Passord:</h3>
       <input class="inputField" v-model="user.password" placeholder="epost" />
     </div>
-    <button id="addUser" v-on:click="handleLogin">Logg inn</button>
+    <button id="addUser">Logg inn</button>
   </form>
 </template>
 
 <script>
+import auth from "@/services/auth.service";
+import authHeader from "@/services/auth-header";
+import store from "@/store/index.js";
+
 export default {
   data() {
     return {
@@ -24,21 +28,16 @@ export default {
     };
   },
   methods: {
+    async created() {
+      auth.login2(this.user);
+      // POST request using fetch with async/await
+    },
     handleLogin() {
-      if (this.user.username && this.user.password) {
-        this.$store.dispatch("login", this.user).then(
-          () => {
-            this.$router.push("/subject_page");
-          },
-          (error) => {
-            this.loading = false;
-            this.message =
-              (error.response && error.response.data) ||
-              error.message ||
-              error.toString();
-          }
-        );
+      this.created();
+      if (authHeader()) {
+        store.commit("SET_LEVEL", 2);
       }
+      console.log(authHeader());
     },
   },
 };
