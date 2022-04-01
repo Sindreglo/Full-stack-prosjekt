@@ -1,6 +1,7 @@
 package oso.ntnu.idatt2015.backend.controller.Course;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,9 +37,9 @@ public class CourseController {
     @GetMapping
     public ResponseEntity<?> getCoursesByUser(HttpServletRequest request){
         String username = jwtUtil.extractUsername(request.getHeader("Authorization").substring(7));
-        ResponseEntity<?> response = new ResponseEntity<>(userRoleCourseService.findByUsername(username));
-        response.getHeaders().add("Access-Control-Allow-Origin","*");
-        return ResponseEntity.ok(response);
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.set("Access-Control-Allow-Origin","*");
+        return ResponseEntity.ok().headers(responseHeaders).body(userRoleCourseService.findByUsername(username));
         //return userRoleCourseService.findByUsername(username).header('Access-Control-Allow-Origin','*');;
     }
 }
