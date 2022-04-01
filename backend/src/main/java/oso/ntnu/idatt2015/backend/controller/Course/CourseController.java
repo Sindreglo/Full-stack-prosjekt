@@ -39,6 +39,8 @@ public class CourseController {
         String username = jwtUtil.extractUsername(request.getHeader("Authorization").substring(7));
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("Access-Control-Allow-Origin","*");
+        responseHeaders.add("Access-Control-Allow-Methods","GET, POST, OPTIONS, PUT, PATCH, DELETE");
+        responseHeaders.add("Access-Control-Allow-Headers","Origin,Content-Type,X-Requested-With,Accept,Authorization");
         return ResponseEntity.ok().headers(responseHeaders).body(userRoleCourseService.findByUsername(username));
         //return userRoleCourseService.findByUsername(username).header('Access-Control-Allow-Origin','*');;
     }
