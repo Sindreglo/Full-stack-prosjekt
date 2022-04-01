@@ -36,7 +36,9 @@ public class CourseController {
     @GetMapping
     public ResponseEntity<?> getCoursesByUser(HttpServletRequest request){
         String username = jwtUtil.extractUsername(request.getHeader("Authorization").substring(7));
-        return ResponseEntity.ok(userRoleCourseService.findByUsername(username));
+        ResponseEntity<?> response = new ResponseEntity<>(userRoleCourseService.findByUsername(username));
+        response.getHeaders().add("Access-Control-Allow-Origin","*");
+        return ResponseEntity.ok(response);
         //return userRoleCourseService.findByUsername(username).header('Access-Control-Allow-Origin','*');;
     }
 }
