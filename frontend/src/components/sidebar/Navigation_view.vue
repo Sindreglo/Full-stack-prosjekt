@@ -58,7 +58,7 @@ export default {
   },
   computed: {
     admin() {
-      return this.$store.state.test;
+      return this.$store.state.level;
     },
   },
 };

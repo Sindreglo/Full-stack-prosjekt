@@ -1,17 +1,26 @@
 import axios from "axios";
-const API_URL = "http://localhost:8080/api/auth/";
+const API_URL = "http://localhost:8080/auth";
+
+/**
+ * const apiClient = axios.create({
+ *   baseURL: "http://localhost:8080/auth",
+ *   withCredentials: false,
+ *   headers: {
+ *     Accept: "application/json",
+ *     "Content-Type": "application/json",
+ *   },
+ * });
+ */
+
 class AuthService {
-  login(user) {
-    return axios
-      .post(API_URL + "login", {
-        username: user.username,
-        password: user.password,
-      })
-      .then((response) => {
-        if (response.data.accessToken) {
-          localStorage.setItem("user", JSON.stringify(response.data));
+  login2(user) {
+    axios
+      .post(API_URL, { username: user.username, password: user.password })
+      .then((r) => {
+        console.log(r.data);
+        if (r.data.jwt) {
+          localStorage.setItem("jwt", JSON.stringify(r.data.jwt));
         }
-        return response.data;
       });
   }
   logout() {

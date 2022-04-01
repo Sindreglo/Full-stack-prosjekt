@@ -14,16 +14,11 @@ export default {
     Subject,
   },
   created() {
-    this.$store.dispatch("fetchSubjects").catch((error) => {
-      this.$router.push({
-        name: "ErrorDisplay",
-        params: { error: error },
-      });
-    });
+    this.$store.dispatch("fetchSubjects");
   },
   computed: {
     subjects() {
-      return this.$store.state.subjects;
+      return this.$store.state.subjects.teacher;
     },
   },
 };

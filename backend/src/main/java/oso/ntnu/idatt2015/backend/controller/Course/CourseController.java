@@ -31,10 +31,11 @@ public class CourseController {
         this.userRoleCourseService = userRoleCourseService;
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "http://localhost:8080/auth")
+    //@CrossOrigin
     @GetMapping
     public CourseResponse getCoursesByUser(HttpServletRequest request){
         String username = jwtUtil.extractUsername(request.getHeader("Authorization").substring(7));
-        return userRoleCourseService.findByUsername(username);
+        return userRoleCourseService.findByUsername(username).header('Access-Control-Allow-Origin','*');;
     }
 }

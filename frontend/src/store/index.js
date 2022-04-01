@@ -8,7 +8,7 @@ export default createStore({
     subject: {},
     users: [],
     user: {},
-    test: 1,
+    level: 3,
   },
   getters: {},
   mutations: {
@@ -27,8 +27,14 @@ export default createStore({
     SET_USERS(state, users) {
       state.users = users;
     },
+    SET_LEVEL(state, level) {
+      state.level = level;
+    },
   },
   actions: {
+    commitLevel({ commit, state }, level) {
+      commit.SET_LEVEL(state, level);
+    },
     fetchSubject({ commit, state }, id) {
       const existingSubject = state.subjects.find(
         (subject) => subject.id === id
