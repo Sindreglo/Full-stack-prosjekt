@@ -1,14 +1,15 @@
 <template>
-  <router-link
-    class="subject-link"
-    :to="{ name: 'ApprovalView', params: { studentName: user.username } }"
-  >
-    <div class="queue-card">
-      <h2>{{ user.username }} - {{ user.Time }}</h2>
-      <p>{{ user.exercise }} {{ user.type }}</p>
-      <p>{{ user.place }}</p>
-    </div>
-  </router-link>
+  <div class="queue-card">
+    <h2>{{ user.username }} - {{ user.Time }}</h2>
+    <p>{{ user.exercise }} {{ user.type }}</p>
+    <p>{{ user.place }}</p>
+    <router-link
+      v-show="admin === 1"
+      class="subject-link"
+      :to="{ name: 'ApprovalView', params: { studentName: user.username } }"
+      >Vurder student
+    </router-link>
+  </div>
 </template>
 
 <script>
@@ -17,6 +18,11 @@ export default {
     user: {
       type: Object,
       required: true,
+    },
+  },
+  computed: {
+    admin() {
+      return this.$store.state.test;
     },
   },
 };
@@ -30,13 +36,8 @@ export default {
   border: 1px solid #39495c;
   margin-bottom: 18px;
 }
-.queue-card:hover {
-  transform: scale(1.01);
-  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-}
 
 .subject-link {
-  color: #2c3e50;
-  text-decoration: none;
+  color: #008b8b;
 }
 </style>

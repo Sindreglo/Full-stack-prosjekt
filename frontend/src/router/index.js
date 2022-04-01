@@ -9,6 +9,7 @@ import CreateSubject from "@/views/admin/CreateSubject";
 import AddUser from "@/views/admin/AddUser";
 import AdminView from "@/views/admin/AdminView";
 import ApprovalView from "@/views/Queue/StudentAssistent/ApprovalView";
+import LogoutView from "@/views/LogoutView";
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     path: "/login",
     name: "Login_view",
     component: LoginView,
+  },
+  {
+    path: "/logout",
+    name: "Logout_view",
+    component: LogoutView,
   },
   {
     path: "/newApproval",

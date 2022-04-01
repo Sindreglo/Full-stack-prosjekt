@@ -8,7 +8,7 @@ export default createStore({
     subject: {},
     users: [],
     user: {},
-    test: 2,
+    test: 1,
   },
   getters: {},
   mutations: {

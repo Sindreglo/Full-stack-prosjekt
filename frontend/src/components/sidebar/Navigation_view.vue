@@ -7,24 +7,32 @@
       </span>
       <span v-else>Qs 3</span>
     </h1>
-    <sidebarLink v-show="admin === 1" to="/AdminView" icon="fa-solid fa-lock"
-      >Admin</sidebarLink
-    >
-    <sidebarLink
-      v-show="admin === 1"
-      to="/AddUser"
-      icon="fa-solid fa-circle-plus"
-      >Legg til bruker</sidebarLink
-    >
-    <sidebarLink
-      v-show="admin === 1"
-      to="/CreateSubject"
-      icon="fa-solid fa-circle-plus"
-      >Opprett fag</sidebarLink
-    >
-    <SidebarLink to="/subjects_page" icon="fa-solid fa-book">Fag</SidebarLink>
-    <SidebarLink to="/user_Setting" icon="fas fa-tools">Settings</SidebarLink>
-    <SidebarLink to="/login" icon="fa-solid fa-right-from-bracket"
+    <div v-if="admin === 1 || admin === 2">
+      <sidebarLink v-if="admin === 1" to="/AdminView" icon="fa-solid fa-lock"
+        >Admin</sidebarLink
+      >
+      <sidebarLink
+        v-if="admin === 1"
+        to="/AddUser"
+        icon="fa-solid fa-circle-plus"
+        >Legg til bruker</sidebarLink
+      >
+      <sidebarLink
+        v-if="admin === 1"
+        to="/CreateSubject"
+        icon="fa-solid fa-circle-plus"
+        >Opprett fag</sidebarLink
+      >
+      <SidebarLink to="/subjects_page" icon="fa-solid fa-book">Fag</SidebarLink>
+      <SidebarLink to="/user_Setting" icon="fas fa-tools">Settings</SidebarLink>
+      <SidebarLink to="/logout" icon="fa-solid fa-right-from-bracket"
+        >Logg ut</SidebarLink
+      >
+    </div>
+    <SidebarLink
+      v-if="admin === 3"
+      to="/login"
+      icon="fa-solid fa-right-from-bracket"
       >logg inn</SidebarLink
     >
 

@@ -2,14 +2,14 @@
   <form id="createSubject">
     <h1>Logg inn</h1>
     <div>
-      <h3>Epost:</h3>
-      <input class="inputField" v-model="email" placeholder="navn" />
+      <h3>brukernavn:</h3>
+      <input class="inputField" v-model="user.username" placeholder="navn" />
     </div>
     <div>
       <h3>Passord:</h3>
-      <input class="inputField" v-model="password" placeholder="epost" />
+      <input class="inputField" v-model="user.password" placeholder="epost" />
     </div>
-    <button id="addUser" v-on:click="login">Logg inn</button>
+    <button id="addUser" v-on:click="handleLogin">Logg inn</button>
   </form>
 </template>
 
@@ -17,33 +17,28 @@
 export default {
   data() {
     return {
-      epost: "",
-      password: "",
+      user: {
+        username: "",
+        password: "",
+      },
     };
   },
   methods: {
     handleLogin() {
-      this.loading = true;
-      this.$validator.validateAll().then((isValid) => {
-        if (!isValid) {
-          this.loading = false;
-          return;
-        }
-        if (this.user.username && this.user.password) {
-          this.$store.dispatch("auth/login", this.user).then(
-            () => {
-              this.$router.push("/subject_page");
-            },
-            (error) => {
-              this.loading = false;
-              this.message =
-                (error.response && error.response.data) ||
-                error.message ||
-                error.toString();
-            }
-          );
-        }
-      });
+      if (this.user.username && this.user.password) {
+        this.$store.dispatch("login", this.user).then(
+          () => {
+            this.$router.push("/subject_page");
+          },
+          (error) => {
+            this.loading = false;
+            this.message =
+              (error.response && error.response.data) ||
+              error.message ||
+              error.toString();
+          }
+        );
+      }
     },
   },
 };

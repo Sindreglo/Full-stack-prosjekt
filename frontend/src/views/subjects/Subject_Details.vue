@@ -3,8 +3,15 @@
     <h1>{{ subject.title }}</h1>
     <p>{{ subject.description }}</p>
     <router-link
-      id="GoToQueue"
+      v-if="admin === 2"
+      class="GoToQueue"
       :to="{ name: 'NewApproval', params: { id: subject.id } }"
+      >Gå til kø</router-link
+    >
+    <router-link
+      v-if="admin === 1"
+      class="GoToQueue"
+      :to="{ name: 'Queue_page' }"
       >Gå til kø</router-link
     >
     <table id="example-1">
@@ -55,6 +62,9 @@ export default {
     subject() {
       return this.$store.state.subject;
     },
+    admin() {
+      return this.$store.state.test;
+    },
   },
 };
 </script>
@@ -84,7 +94,7 @@ td {
   height: 20px;
 }
 
-#GoToQueue {
+.GoToQueue {
   color: inherit;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   margin-top: 20px;
@@ -95,7 +105,7 @@ td {
   border: 1px solid #39495c;
 }
 
-#GoToQueue:hover {
+.GoToQueue:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
 }
