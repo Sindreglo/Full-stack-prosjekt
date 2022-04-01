@@ -33,10 +33,11 @@ public class CourseController {
         this.userRoleCourseService = userRoleCourseService;
     }
 
-    //@CrossOrigin
     @GetMapping
+    @CrossOrigin
     public ResponseEntity<?> getCoursesByUser(HttpServletRequest request){
         String username = jwtUtil.extractUsername(request.getHeader("Authorization").substring(7));
+        System.out.println("HERRRRRRRRR");
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("Access-Control-Allow-Origin","*");
         responseHeaders.add("Access-Control-Allow-Methods","GET, POST, OPTIONS, PUT, PATCH, DELETE");

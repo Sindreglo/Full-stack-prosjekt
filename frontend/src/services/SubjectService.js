@@ -1,33 +1,20 @@
 import axios from "axios";
-import authHeader from "./auth-header";
+axios.defaults.headers.common["Authorization"] =
+  "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50IiwiZXhwIjoxNjQ4ODU3NDYxLCJpYXQiOjE2NDg4MjE0NjF9.iqnTnnU4Pc91hIAn9l_a5q5F2su3siC4wFGsRQJCDsE";
 
 let apiClient = axios.create({
-  baseURL: "http://localhost:8080/api",
+  mode: "no-cors",
+  baseURL: "http://localhost:8081/api",
   withCredentials: false,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
-    Authorization: authHeader(),
   },
 });
 
-const url = "http://localhost:8080/api/course";
-const options = {
-  method: "GET",
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json;charset=UTF-8",
-    Authorization: authHeader(),
-  },
-};
-
 export default {
   getSubjects() {
-    fetch(url, options)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
+    return apiClient.get("/course");
   },
   getSubject(id) {
     return apiClient.get("/subjects/" + id);

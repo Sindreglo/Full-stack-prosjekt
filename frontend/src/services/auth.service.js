@@ -1,17 +1,6 @@
 import axios from "axios";
 const API_URL = "http://localhost:8080/auth";
 
-/**
- * const apiClient = axios.create({
- *   baseURL: "http://localhost:8080/auth",
- *   withCredentials: false,
- *   headers: {
- *     Accept: "application/json",
- *     "Content-Type": "application/json",
- *   },
- * });
- */
-
 class AuthService {
   login2(user) {
     axios

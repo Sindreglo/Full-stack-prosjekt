@@ -1,7 +1,7 @@
 <template>
   <h1>Fag</h1>
   <div class="events">
-    <Subject v-for="subject in subjects" :key="subject.id" :subject="subject" />
+    <Subject v-for="(subject, i) in subjects" :key="i" :subject="subject" />
   </div>
 </template>
 

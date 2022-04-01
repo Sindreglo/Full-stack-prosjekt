@@ -54,6 +54,7 @@ export default createStore({
     fetchSubjects({ commit }) {
       return SubjectService.getSubjects()
         .then((response) => {
+          console.log(response.data);
           commit("SET_SUBJECTS", response.data);
         })
         .catch((error) => {
