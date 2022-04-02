@@ -1,6 +1,6 @@
 import axios from "axios";
 axios.defaults.headers.common["Authorization"] =
-  "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHVkZW50IiwiZXhwIjoxNjQ4ODU3NDYxLCJpYXQiOjE2NDg4MjE0NjF9.iqnTnnU4Pc91hIAn9l_a5q5F2su3siC4wFGsRQJCDsE";
+  "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODkyMTE1NCwiaWF0IjoxNjQ4ODg1MTU0fQ.pkNJOIM7J5Du4oyOHaqxybFbaGxtbiG7yeY04mTy1us";
 
 let apiClient = axios.create({
   mode: "no-cors",

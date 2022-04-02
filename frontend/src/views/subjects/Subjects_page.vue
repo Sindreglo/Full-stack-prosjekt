@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     subjects() {
-      return this.$store.state.subjects.teacher;
+      return this.$store.state.subjects;
     },
   },
 };
