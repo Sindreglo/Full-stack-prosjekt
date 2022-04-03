@@ -1,7 +1,7 @@
 <template>
   <h1>Fag</h1>
   <div class="events">
-    <Subject v-for="(subject, i) in subjects" :key="i" :subject="subject" />
+    <Subject v-for="subject in subjects" :key="subject.id" :subject="subject" />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     subjects() {
-      return this.$store.state.subjects;
+      return this.$store.state.subjects.teacher;
     },
   },
 };

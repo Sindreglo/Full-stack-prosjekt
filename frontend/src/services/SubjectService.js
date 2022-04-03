@@ -1,14 +1,13 @@
 import axios from "axios";
-axios.defaults.headers.common["Authorization"] =
-  "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODkyMTE1NCwiaWF0IjoxNjQ4ODg1MTU0fQ.pkNJOIM7J5Du4oyOHaqxybFbaGxtbiG7yeY04mTy1us";
+import authHeader from "./auth-header";
 
 let apiClient = axios.create({
-  mode: "no-cors",
-  baseURL: "http://localhost:8081/api",
+  baseURL: "http://localhost:8080/api",
   withCredentials: false,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
+    Authorization: authHeader(),
   },
 });
 

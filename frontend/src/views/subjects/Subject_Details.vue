@@ -1,7 +1,7 @@
 <template>
   <div v-if="subject">
-    <h1>{{ subject.title }}</h1>
-    <p>{{ subject.description }}</p>
+    <h1>{{ subject.courseName }}</h1>
+    <p>{{ subject.id }}</p>
     <router-link
       v-if="admin === 2"
       class="GoToQueue"
@@ -15,7 +15,7 @@
       >Gå til kø</router-link
     >
     <table id="example-1">
-      <tbody v-for="task in subject.task" :key="task.task">
+      <tbody v-for="(task, i) in subject.tasks" :key="i">
         <div id="tasks">
           <td v-if="task.status === 1">
             <img

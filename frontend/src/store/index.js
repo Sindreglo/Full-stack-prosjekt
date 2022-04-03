@@ -20,6 +20,7 @@ export default createStore({
     },
     SET_SUBJECTS(state, subjects) {
       state.subjects = subjects;
+      console.log(subjects);
     },
     SET_USER(state, user) {
       state.user = user;
@@ -54,7 +55,6 @@ export default createStore({
     fetchSubjects({ commit }) {
       return SubjectService.getSubjects()
         .then((response) => {
-          console.log(response.data);
           commit("SET_SUBJECTS", response.data);
         })
         .catch((error) => {

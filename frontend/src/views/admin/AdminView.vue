@@ -3,7 +3,7 @@
   <form id="adminPanel">
     <div id="subjectTable">
       <Subject
-        v-for="subject in subjects"
+        v-for="subject in subjects.assistant"
         :key="subject.id"
         :subject="subject"
       />

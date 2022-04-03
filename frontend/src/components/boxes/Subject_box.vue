@@ -4,8 +4,8 @@
     :to="{ name: 'Subject_Details', params: { id: subject.id } }"
   >
     <div class="subject-card">
-      <h2>{{ subject.title }}</h2>
-      <p>{{ subject.description }} | {{ subject.active }}</p>
+      <h2>{{ subject.courseName }}</h2>
+      <p>{{ subject.id }} | {{ subject.active }}</p>
     </div>
   </router-link>
 </template>

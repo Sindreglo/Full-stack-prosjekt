@@ -1,8 +1,6 @@
 package oso.ntnu.idatt2015.backend.controller.Course;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +14,7 @@ import oso.ntnu.idatt2015.backend.service.User.UserRoleCourseService;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/course")
 public class CourseController {
     private final CourseService courseService;
@@ -33,16 +32,15 @@ public class CourseController {
         this.userRoleCourseService = userRoleCourseService;
     }
 
+    //@CrossOrigin
     @GetMapping
-    @CrossOrigin
-    public ResponseEntity<?> getCoursesByUser(HttpServletRequest request){
+    public CourseResponse getCoursesByUser(HttpServletRequest request){
         String username = jwtUtil.extractUsername(request.getHeader("Authorization").substring(7));
-        System.out.println("HERRRRRRRRR");
-        HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.set("Access-Control-Allow-Origin","*");
-        responseHeaders.add("Access-Control-Allow-Methods","GET, POST, OPTIONS, PUT, PATCH, DELETE");
-        responseHeaders.add("Access-Control-Allow-Headers","Origin,Content-Type,X-Requested-With,Accept,Authorization");
-        return ResponseEntity.ok().headers(responseHeaders).body(userRoleCourseService.findByUsername(username));
-        //return userRoleCourseService.findByUsername(username).header('Access-Control-Allow-Origin','*');;
+        return userRoleCourseService.findByUsername(username);
+    }
+
+    public CourseResponse getCourseByUser(HttpServletRequest request, String Course) {
+        String username = jwtUtil.extractUsername(request.getHeader("Authorization").substring(7));
+        return userRoleCourseService.findByUsername(username);
     }
 }
