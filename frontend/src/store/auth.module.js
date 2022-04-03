@@ -8,7 +8,7 @@ export const auth = {
   state: initialState,
   actions: {
     login({ commit }, user) {
-      return AuthService.login(user).then(
+      AuthService.login(user).then(
         (user) => {
           commit("LoginSuccess", user);
           return Promise.resolve(user);

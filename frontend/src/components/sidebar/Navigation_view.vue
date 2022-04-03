@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import store from "@/store";
 import SidebarLink from "./NavigationLink";
 import { collapsed, toggleSidebar, sidebarWidth } from "./state";
 
@@ -58,7 +59,7 @@ export default {
   },
   computed: {
     admin() {
-      return this.$store.state.level;
+      return store.state.user.username.userLevel.id;
     },
   },
 };

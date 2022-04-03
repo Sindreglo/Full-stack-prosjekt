@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import SubjectService from "@/services/SubjectService";
+import user from "@/services/user.service";
 
 export default createStore({
   state: {
@@ -7,8 +8,13 @@ export default createStore({
     subjects: [],
     subject: {},
     users: [],
-    user: {},
-    level: 3,
+    user: {
+      username: {
+        userLevel: {
+          id: 3,
+        },
+      },
+    },
   },
   getters: {},
   mutations: {
@@ -24,6 +30,7 @@ export default createStore({
     },
     SET_USER(state, user) {
       state.user = user;
+      console.log(user);
     },
     SET_USERS(state, users) {
       state.users = users;
@@ -69,6 +76,11 @@ export default createStore({
         .catch((error) => {
           throw error;
         });
+    },
+    fetchUser({ commit }) {
+      return user.getUser().then((response) => {
+        commit("SET_USER", response.data);
+      });
     },
   },
   modules: {},

@@ -1,4 +1,5 @@
 import axios from "axios";
+import store from "@/store";
 const API_URL = "http://localhost:8080/auth";
 
 /**
@@ -13,12 +14,15 @@ const API_URL = "http://localhost:8080/auth";
  */
 
 class AuthService {
-  login2(user) {
+  login(user) {
     axios
       .post(API_URL, { username: user.username, password: user.password })
       .then((r) => {
-        console.log(r.data);
+        if (r.data === "Incorrect username or password line 43") {
+          console.log("FEIL");
+        }
         if (r.data.jwt) {
+          store.commit("SET_LEVEL", 2);
           localStorage.setItem("jwt", JSON.stringify(r.data.jwt));
         }
       });

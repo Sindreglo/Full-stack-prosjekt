@@ -1,5 +1,5 @@
 <template>
-  <form id="createSubject" @submit.prevent="handleLogin">
+  <form class="createSubject" @submit.prevent="handleLogin">
     <h1>Logg inn</h1>
     <div>
       <h3>brukernavn:</h3>
@@ -17,6 +17,7 @@
 import auth from "@/services/auth.service";
 import authHeader from "@/services/auth-header";
 import store from "@/store/index.js";
+import router from "@/router";
 
 export default {
   data() {
@@ -29,13 +30,18 @@ export default {
   },
   methods: {
     async created() {
-      auth.login2(this.user);
+      auth.login(this.user);
       // POST request using fetch with async/await
     },
     handleLogin() {
       this.created();
       if (authHeader()) {
-        store.commit("SET_LEVEL", 2);
+        setTimeout(() => {
+          if (store.state.level !== 3) {
+            store.dispatch("fetchUser");
+            router.push("/subjects_page");
+          }
+        }, 100);
       }
       console.log(authHeader());
     },

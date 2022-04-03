@@ -1,18 +1,19 @@
 import axios from "axios";
 import authHeader from "@/services/auth-header";
-const API_URL = "http://localhost:8080/api/test/";
+let apiClient = axios.create({
+  baseURL: "http://localhost:8080/api/",
+  withCredentials: false,
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    Authorization: authHeader(),
+  },
+});
+
 class UserService {
-  getAll() {
-    return axios.get(API_URL + "all");
-  }
-  getUserBoard() {
-    return axios.get(API_URL + "user", { headers: authHeader() });
-  }
-  getStudassBoard() {
-    return axios.get(API_URL + "studass", { headers: authHeader() });
-  }
-  getProfessorBoard() {
-    return axios.get(API_URL + "professor", { headers: authHeader() });
+  getUser() {
+    return apiClient.get("user");
   }
 }
+
 export default new UserService();

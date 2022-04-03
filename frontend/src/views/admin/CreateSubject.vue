@@ -1,5 +1,5 @@
 <template>
-  <form id="createSubject">
+  <form class="createSubject">
     <h1>Opprett nytt fag</h1>
     <div>
       <h3>Navn på fag:</h3>
@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style>
-#createSubject {
+.createSubject {
   display: flex;
   flex-direction: column;
   align-items: center;

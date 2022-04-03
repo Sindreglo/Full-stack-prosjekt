@@ -1,12 +1,12 @@
 <template>
-  <form id="createSubject">
+  <form class="createSubject">
     <h1>Innstillinger</h1>
     <div>
       <h3>Fornavn:</h3>
       <input
         disabled
         class="inputField"
-        v-model="user.firstName"
+        v-model="Userr.username"
         placeholder="navn"
       />
     </div>
@@ -28,9 +28,13 @@
         placeholder="epost"
       />
     </div>
-    <form @submit.prevent="checkAndChangePassword" id="createSubject">
+    <div>
+      <h3>Nivå:</h3>
+      <input disabled class="inputField" v-model="Userr.userLevel.userLevel" />
+    </div>
+    <form @submit.prevent="checkAndChangePassword" class="createSubject">
       <h3>Change password</h3>
-      <input type="password" class="inputField" v-model="user.password" />
+      <input type="password" class="inputField" v-model="Userr.password" />
       <input
         type="password"
         class="inputField"
@@ -50,6 +54,7 @@
 </template>
 
 <script>
+import store from "@/store";
 export default {
   data() {
     return {
@@ -64,6 +69,9 @@ export default {
       },
     };
   },
+  created() {
+    store.dispatch("fetchUser");
+  },
   methods: {
     checkAndChangePassword() {
       this.alert = "";
@@ -71,6 +79,11 @@ export default {
         this.alert = "Passwords must match";
         return;
       }
+    },
+  },
+  computed: {
+    Userr() {
+      return store.state.user.username;
     },
   },
 };

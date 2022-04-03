@@ -4,9 +4,12 @@
 </template>
 
 <script>
+import store from "@/store";
+
 export default {
   methods: {
     logout() {
+      store.commit("SET_LEVEL", 3);
       this.$router.push("login");
     },
   },
