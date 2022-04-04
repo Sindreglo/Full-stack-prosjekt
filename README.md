@@ -18,7 +18,7 @@ Gruppe:
 cd Full-stack-prosjekt\backend
 # With Maven  
 
-# With Docker-compose (?)
+# With Docker-compose from top directory
 docker-compose up
 ```
 
