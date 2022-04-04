@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import SubjectService from "@/services/SubjectService";
 import user from "@/services/user.service";
+import { auth } from "./auth.module";
 
 export default createStore({
   state: {
@@ -83,5 +84,7 @@ export default createStore({
       });
     },
   },
-  modules: {},
+  modules: {
+    auth,
+  },
 });

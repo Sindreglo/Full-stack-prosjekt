@@ -1,5 +1,5 @@
 <template>
-  <form id="createSubject">
+  <form class="createSubject">
     <h1>Legg til ny bruker</h1>
     <div>
       <h3>Navn:</h3>

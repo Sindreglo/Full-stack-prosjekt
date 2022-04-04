@@ -1,7 +1,21 @@
 <template>
   <h1>Fag</h1>
   <div class="events">
-    <Subject v-for="subject in subjects" :key="subject.id" :subject="subject" />
+    <Subject
+      v-for="subject in AllSubjects.teacher"
+      :key="subject.id"
+      :subject="subject"
+    />
+    <Subject
+      v-for="subject in AllSubjects.assistant"
+      :key="subject.id"
+      :subject="subject"
+    />
+    <Subject
+      v-for="subject in AllSubjects.student"
+      :key="subject.id"
+      :subject="subject"
+    />
   </div>
 </template>
 
@@ -17,8 +31,8 @@ export default {
     this.$store.dispatch("fetchSubjects");
   },
   computed: {
-    subjects() {
-      return this.$store.state.subjects.teacher;
+    AllSubjects() {
+      return this.$store.state.subjects;
     },
   },
 };
