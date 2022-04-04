@@ -6,6 +6,7 @@ import oso.ntnu.idatt2015.backend.model.Course.QCourse;
 import oso.ntnu.idatt2015.backend.repository.Course.CourseRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CourseService {
@@ -18,5 +19,11 @@ public class CourseService {
 
     public List<QCourse> getAllCourses() {
         return courseRepository.findAll();
+    }
+
+    public QCourse getById(long id) {
+        if (courseRepository.findById(id).isPresent()){
+            return courseRepository.findById(id).get();
+        }
     }
 }

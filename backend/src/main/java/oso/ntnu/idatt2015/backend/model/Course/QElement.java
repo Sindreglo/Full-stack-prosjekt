@@ -7,6 +7,7 @@ import oso.ntnu.idatt2015.backend.model.Task.Task;
 import oso.ntnu.idatt2015.backend.model.User.QUser;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,10 +26,30 @@ public class QElement {
     List<QUser> students;
 
     public void addStudent(QUser student){
+        initArrays();
         this.students.add(student);
     }
 
     public void addStudent(List<QUser> students){
+        initArrays();
         this.students.addAll(students);
+    }
+
+    public void initArrays(){
+        if (this.students == null){
+            this.students = new ArrayList<>();
+        }
+    }
+
+    public void approve(){
+        for (QUser student:students) {
+            student.approveTask(task);
+        }
+    }
+
+    public void fail(){
+        for (QUser student:students) {
+            student.failTask(task);
+        }
     }
 }
