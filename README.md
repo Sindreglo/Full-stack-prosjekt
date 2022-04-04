@@ -55,6 +55,7 @@ ferdig utviklet.
 - Kø system
 - Godkjenning av øvinger
 - Testing
+- CI
 
 
 ## Arkitektur
