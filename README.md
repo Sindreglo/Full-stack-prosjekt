@@ -19,8 +19,7 @@ cd Full-stack-prosjekt\backend
 # With Maven  
 
 # With Docker-compose (?)
-docker-compose -f docker-compose build
-docker-compose -f docker-compose up
+docker-compose up
 ```
 
 ### Frontend
