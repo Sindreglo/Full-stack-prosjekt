@@ -25,5 +25,6 @@ public class CourseService {
         if (courseRepository.findById(id).isPresent()){
             return courseRepository.findById(id).get();
         }
+        return null;
     }
 }

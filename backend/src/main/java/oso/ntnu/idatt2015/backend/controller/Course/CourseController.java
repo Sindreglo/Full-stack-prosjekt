@@ -37,7 +37,7 @@ public class CourseController {
         return userRoleCourseService.findByUsername(username);
     }
 
-    @GetMapping(name = "/id")
+    @GetMapping(path = "/id")
     public QCourse getCourseById(@RequestBody IdRequest idRequest) {
         return courseService.getById(idRequest.getId());
     }
