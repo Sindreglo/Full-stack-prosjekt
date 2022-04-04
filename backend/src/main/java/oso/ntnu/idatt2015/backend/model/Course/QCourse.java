@@ -25,12 +25,15 @@ public class QCourse {
 
     @OneToMany
     private List<Task> Tasks;
+    /*
     @OneToMany
     private List<QUser> students;
     @OneToMany
     private List<QUser> assistants;
     @OneToMany
     private List<QUser> teachers;
+
+     */
 
     @ManyToOne
     private TaskValidationFilter taskValidationFilter;
@@ -52,6 +55,7 @@ public class QCourse {
         if (this.Tasks == null){
             this.Tasks = new ArrayList<>();
         }
+        /*
         if (this.students == null){
             this.students = new ArrayList<>();
         }
@@ -61,5 +65,7 @@ public class QCourse {
         if (this.teachers == null){
             this.teachers = new ArrayList<>();
         }
+
+         */
     }
 }

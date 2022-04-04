@@ -4,7 +4,7 @@ services:
   app:
     image: 'docker-spring-boot-postgres:latest'
     build:
-      context: .
+      context: ./backend
     container_name: app
     depends_on:
       - db
@@ -24,3 +24,15 @@ services:
       - POSTGRES_PASSWORD=compose-postgres
     ports:
       - "5432:5432"
+
+
+  vue:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    container_name: vue
+    volumes:
+      - ./frontend:/frontend
+      - /frontend/node_modules
