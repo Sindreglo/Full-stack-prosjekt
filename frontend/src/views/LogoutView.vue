@@ -1,6 +1,6 @@
 <template>
   <h1>Vil du logge ut?</h1>
-  <button id="logout" v-on:click="logout">Logg ut</button>
+  <button id="logout" v-on:click="logoutUser">Logg ut</button>
 </template>
 
 <script>
@@ -8,7 +8,7 @@ import store from "@/store";
 
 export default {
   methods: {
-    logout() {
+    logoutUser() {
       store.commit("SET_LEVEL", 3);
       this.$router.push("login");
     },
