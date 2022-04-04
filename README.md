@@ -1,9 +1,13 @@
 # Frivillig prosjekt 2022
 
 ## Introduksjon
-Frivillig prosjekt i Fullstack Applikasjonsutvikling (IDATT2105) ved NTNU <br>
-Gruppe: Olav Dagestad Eikrem, Sindre Glomnes, Øyvind Bjøntegaard
-- Årets prosjektoppgave er å lage et alternativ til Qs. 
+Frivillig prosjekt i Fullstack Applikasjonsutvikling (IDATT2105) ved NTNU <br> <br>
+Gruppe: 
+- Olav Dagestad Eikrem
+- Sindre Glomnes
+- Øyvind Bjøntegaard
+
+<br>Årets prosjektoppgave er å lage et alternativ til Qs. 
 
 
 ## Installasjon
