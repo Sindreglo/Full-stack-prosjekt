@@ -56,7 +56,3 @@ ferdig utviklet.
 - Godkjenning av øvinger
 - Testing
 - CI
-
-
-## Arkitektur
-![image](https://user-images.githubusercontent.com/81357022/161537175-56d4e4e5-5da0-451a-9771-16a9b61a3fcc.png)
