@@ -45,19 +45,16 @@ export default createStore({
       commit.SET_LEVEL(state, level);
     },
     fetchSubject({ commit, state }, id) {
-      const existingSubject = state.subjects.find(
-        (subject) => subject.id === id
+      console.log(id);
+      console.log(state.subjects.student);
+      const existingSubject = state.subjects.student.id.find(
+        (subject) => subject === id
       );
+      console.log(existingSubject);
+      console.log("her2");
       if (existingSubject) {
+        console.log("her3");
         commit("SET_SUBJECT", existingSubject);
-      } else {
-        return SubjectService.getSubject(id)
-          .then((response) => {
-            commit("SET_SUBJECT", response.data);
-          })
-          .catch((error) => {
-            throw error;
-          });
       }
     },
     fetchSubjects({ commit }) {

@@ -62,9 +62,6 @@ export default {
     subject() {
       return this.$store.state.subject;
     },
-    admin() {
-      return this.$store.state.test;
-    },
   },
 };
 </script>
