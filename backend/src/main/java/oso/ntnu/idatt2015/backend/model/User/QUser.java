@@ -6,6 +6,7 @@ import lombok.Setter;
 import oso.ntnu.idatt2015.backend.model.Task.Task;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -39,19 +40,31 @@ public class QUser {
      */
 
     public QUser(String username, String password){
+        initArrays();
         this.username = username;
         this.password = password;
     }
 
 
     public void failTask(Task task){
+        initArrays();
         this.failedTasks.add(task);
         this.approvedTasks.remove(task);
     }
 
     public void approveTask(Task task){
+        initArrays();
         this.approvedTasks.add(task);
         this.failedTasks.remove(task);
+    }
+
+    public void initArrays(){
+        if (this.failedTasks == null){
+            this.failedTasks = new ArrayList<>();
+        }
+        if (this.approvedTasks == null){
+            this.approvedTasks = new ArrayList<>();
+        }
     }
 
     /*

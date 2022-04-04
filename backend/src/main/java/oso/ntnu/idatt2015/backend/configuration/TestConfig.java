@@ -20,6 +20,7 @@ import oso.ntnu.idatt2015.backend.repository.User.UserRoleCourseRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Configuration
 public class TestConfig {
@@ -73,7 +74,7 @@ public class TestConfig {
             taskRepository.save(task3);
             taskRepository.save(task4);
 
-            /*
+
             c1.addTask(task1);
             c1.addTask(task2);
             c2.addTask(task3);
@@ -82,14 +83,24 @@ public class TestConfig {
             courseRepository.save(c1);
             courseRepository.save(c2);
 
-            for (UserRoleCourse var:userRoleCourseRepository.findByRole(r2)) {
-                var.getUser().approveTask(var.getCourse().getTasks().get(0));
-                var.getUser().failTask(var.getCourse().getTasks().get(0));
-            }
+            u1.approveTask(task3);
+            u1.approveTask(task4);
 
+            userRepository.save(u1);
             userRepository.save(u2);
-
-             */
+/*
+            for (UserRoleCourse var : userRoleCourseRepository.findByRole(r2)) {
+                Optional<QUser> optionalQUser = userRepository.findById(var.getUser().getId());
+                Optional<QCourse> optionalQCourse = courseRepository.findById(var.getCourse().getId());
+                QCourse currentCourse;
+                QUser currentUser;
+                if (optionalQCourse.isPresent() && optionalQCourse.isPresent()) {
+                    currentCourse = optionalQCourse.get();
+                    currentUser = optionalQUser.get();
+                    System.out.println(currentCourse.getId());
+                    System.out.println(currentUser.getId());
+                }
+            }*/
         };
     }
 
