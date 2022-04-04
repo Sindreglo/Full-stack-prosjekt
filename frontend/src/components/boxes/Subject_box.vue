@@ -1,7 +1,8 @@
 <template>
   <router-link
+    v-on:click="details"
     class="subject-link"
-    :to="{ name: 'Subject_Details', params: { id: subject.id } }"
+    :to="{ name: 'Subject_Details', params: { subject: subject } }"
   >
     <div class="subject-card">
       <h2>{{ subject.courseName }}</h2>
@@ -11,11 +12,17 @@
 </template>
 
 <script>
+import store from "@/store";
 export default {
   props: {
     subject: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    details() {
+      store.dispatch("SET_ACTIVESUBJECT", this.subject);
     },
   },
 };

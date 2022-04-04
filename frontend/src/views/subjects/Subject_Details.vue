@@ -49,22 +49,14 @@
 
 <script>
 export default {
-  props: ["id"],
-  created() {
-    this.$store.dispatch("fetchSubject", this.id).catch((error) => {
-      this.$router.push({
-        name: "ErrorDisplay",
-        params: { error: error },
-      });
-    });
+  props: {
+    subject: {
+      type: Object,
+      required: true,
+    },
   },
-  computed: {
-    subject() {
-      return this.$store.state.subject;
-    },
-    admin() {
-      return this.$store.state.test;
-    },
+  created() {
+    console.log(this.subject);
   },
 };
 </script>

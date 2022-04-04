@@ -1,15 +1,57 @@
 # Frivillig prosjekt 2022
-Gruppe: Olav Dagestad Eikrem, Sindre Glomnes, Øyvind Bjøntegaard
 
-## Intro
-Frivillig prosjekt i Fullstack Applikasjonsutvikling (IDATT2105) ved NTNU <br>
-Årets prosjektoppgave er å lage et alternativ til Qs. 
+## Introduksjon
+Frivillig prosjekt i Fullstack Applikasjonsutvikling (IDATT2105) ved NTNU <br> <br>
+Gruppe: 
+- Olav Dagestad Eikrem
+- Sindre Glomnes
+- Øyvind Bjøntegaard
 
-## Implementert
-- Logge inn. enten som student, studass eller professor
-- Student: Se øvinger, som er tildelt studenten
-- Studass:
+<br>Årets prosjektoppgave er å lage et alternativ til Qs. 
 
 
-## Fremtidig arbeid
-- ... Ganske mye
+## Installasjon
+
+### Backend
+
+```bash
+cd Full-stack-prosjekt\backend
+# With Maven  
+
+# With Docker-compose (?)
+docker-compose up
+```
+
+### Frontend
+
+```bash
+cd Full-stack-prosjekt\frontend
+# Run the app
+npm run serve
+```
+
+
+
+## Funskjonalitet
+- Logge inn. enten som student, studass eller admin
+- Student: Liste fag
+- Student: liste øvinger (godkjent, ikke godkjent, ikke vurdert)
+- Student: Still i kø for godkjenning/hjelp
+- Studass: Godkjenne øvinger
+- Admin: Liste alle fag og alle øvinger
+- Admin: Legge til brukere
+- Admin: Legge til fag
+- Alle: Endre passord.
+
+
+## Nåværende mangler
+De fleste manglene kommer av at koblingen mellom front- og backend ikke er
+ferdig utviklet.
+- Legge til brukere
+- Legge til fag
+- Forbedret på/avloggings metode
+- Detaljer om fag (øvinger)
+- Kø system
+- Godkjenning av øvinger
+- Testing
+- CI

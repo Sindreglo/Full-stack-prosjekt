@@ -15,8 +15,10 @@ export default {
   getSubjects() {
     return apiClient.get("/course");
   },
-  getSubject(id) {
-    return apiClient.get("/subjects/" + id);
+  async getSubject(id) {
+    console.log(id + "???????");
+    let res = await apiClient.get("/course/id", { params: { id: id } });
+    return res;
   },
   postSubject(event) {
     return apiClient.post("/subjects", event);
