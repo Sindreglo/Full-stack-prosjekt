@@ -8,6 +8,7 @@ export default createStore({
     mainUser: {},
     subjects: [],
     subject: {},
+    activeSubject: {},
     users: [],
     user: {
       username: {
@@ -29,6 +30,9 @@ export default createStore({
       state.subjects = subjects;
       console.log(subjects);
     },
+    SET_ACTIVESUBJECT(state, subject) {
+      state.activeSubject = subject;
+    },
     SET_USER(state, user) {
       state.user = user;
       console.log(user);
@@ -44,18 +48,14 @@ export default createStore({
     commitLevel({ commit, state }, level) {
       commit.SET_LEVEL(state, level);
     },
-    fetchSubject({ commit, state }, id) {
-      console.log(id);
-      console.log(state.subjects.student);
-      const existingSubject = state.subjects.student.id.find(
-        (subject) => subject === id
-      );
-      console.log(existingSubject);
-      console.log("her2");
-      if (existingSubject) {
-        console.log("her3");
-        commit("SET_SUBJECT", existingSubject);
-      }
+    fetchSubject({ commit }, id) {
+      return SubjectService.getSubject(id)
+        .then((response) => {
+          commit("SET_SUBJECT", response.data);
+        })
+        .catch((error) => {
+          throw error;
+        });
     },
     fetchSubjects({ commit }) {
       return SubjectService.getSubjects()
