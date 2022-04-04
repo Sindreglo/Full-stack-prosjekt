@@ -8,6 +8,7 @@ import oso.ntnu.idatt2015.backend.model.Task.TaskValidationFilter;
 import oso.ntnu.idatt2015.backend.model.User.QUser;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -39,9 +40,26 @@ public class QCourse {
 
     public QCourse(String courseName) {
         this.courseName = courseName;
+        initArrays();
     }
 
     public void addTask(Task task){
+        initArrays();
         this.Tasks.add(task);
+    }
+
+    public void initArrays(){
+        if (this.Tasks == null){
+            this.Tasks = new ArrayList<>();
+        }
+        if (this.students == null){
+            this.students = new ArrayList<>();
+        }
+        if (this.assistants == null){
+            this.assistants = new ArrayList<>();
+        }
+        if (this.teachers == null){
+            this.teachers = new ArrayList<>();
+        }
     }
 }
